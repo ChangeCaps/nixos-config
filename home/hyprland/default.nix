@@ -12,10 +12,7 @@ let
 in { 
   wayland.windowManager.hyprland = {
     enable = true;
-
     xwayland.enable = true;
-
-    package = pkgs.hyprland;
 
     settings = {
       exec-once ="${startupScript}/bin/start";
@@ -32,7 +29,6 @@ in {
         "XCURSOR_SIZE,24"
         "XCURSOR_THEME,Bibata-Modern-Classic"
       ];
-
 
       input = {
         kb_layout = "dk";

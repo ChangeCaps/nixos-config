@@ -43,7 +43,9 @@
       anon = nixpkgs.lib.nixosSystem rec {
         modules = [ ./nixos/configuration.nix ];
 
-        specialArgs = { inherit system; };
+        specialArgs = { 
+          inherit inputs; 
+        };
       };
     };
   };

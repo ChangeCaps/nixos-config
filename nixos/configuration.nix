@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
@@ -58,18 +58,10 @@
     xwayland = {
       enable = true;
     };
-
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = false;
-
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ]; 
   };
 
   services.xserver = {
