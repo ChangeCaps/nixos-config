@@ -23,7 +23,9 @@ let
     binde = SHIFT, K, resizeactive,  0  -50
     binde = SHIFT, L, resizeactive,  50  0
 
-    bind = , catchall, submap, reset
+    bind = , escape, submap, reset
+    bind = , A, submap, reset
+    bind = , Q, submap, reset
 
     submap = reset
   '';
