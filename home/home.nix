@@ -1,13 +1,19 @@
-{ inputs, config, pkgs, ... }: {
+{ inputs, config, pkgs, ... }: 
+
+{
   imports = [
+    inputs.nix-colors.homeManagerModules.default
+
     ./alacritty       
     ./dunst
     ./hyprland
     ./wofi
     ./waybar
     ./wlogout
-    ./modules
+    ../modules
   ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -72,13 +78,13 @@
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"; 
   }; 
 
-  #fish = {
-  #  enable = true;
+  fish = {
+    enable = true;
 
-  #  sessionVariables = {
-  #    FLAKE = "~/dotfiles";
-  #  };
-  #};
+    sessionVariables = {
+      FLAKE = "~/dotfiles";
+    };
+  };
 
   gtk = {
     enable = true;
