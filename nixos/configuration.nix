@@ -64,12 +64,6 @@
     enable = true;
   };
 
-  services.cage = {
-    enable = true;
-    program = "${pkgs.greetd.gtkgreet}/bin/gtkgreet Hyprland";
-    user = "anon";
-  };
-
   # Nvidia config
   hardware = {
     opengl = {
@@ -144,9 +138,6 @@
   fonts.packages = with pkgs; [
     noto-fonts
     nerdfonts
-    glxinfo
-    vulkan-tools
-    glmark2
   ];
 
   # Enable experimental features
