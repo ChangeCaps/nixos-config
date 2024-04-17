@@ -6,7 +6,7 @@
     layout = [
       {
         label = "lock";
-        action = "hyprlock";
+        action = "${pkgs.hyprlock}/bin/hyprlock";
         text = "Lock";
         keybind = "l";
       }

@@ -17,7 +17,6 @@
         shell = "fish";
 
         cursor.style = "Block";
-        env.TERM = "xterm-256color";
 
         font.size = 9.0;
         font.normal.family = "Noto Sans Mono";
@@ -49,8 +48,8 @@
             yellow = "0x${base09}";
           };
           cursor = {
-            cursor = "0x${base06}";
-            text = "0x${base06}";
+            cursor = "0x${base05}";
+            text = "0x${base00}";
           };
           normal = {
             black = "0x${base00}";
@@ -64,7 +63,7 @@
           };
           primary = {
             background = "0x${base00}";
-            foreground = "0x${base06}";
+            foreground = "0x${base05}";
           };
         };
       };
