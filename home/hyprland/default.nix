@@ -9,25 +9,48 @@ let
 
     ${pkgs.swww}/bin/swww img $(../wallpaper.png) &
   ''; 
+
+  resizeSubmap = ''
+    submap = resize
+
+    binde = , H, resizeactive, -10  0
+    binde = , J, resizeactive,  0   10
+    binde = , K, resizeactive,  0  -10
+    binde = , L, resizeactive,  10  0
+
+    binde = SHIFT, H, resizeactive, -50  0
+    binde = SHIFT, J, resizeactive,  0   50
+    binde = SHIFT, K, resizeactive,  0  -50
+    binde = SHIFT, L, resizeactive,  50  0
+
+    bind = , catchall, submap, reset
+
+    submap = reset
+  '';
 in { 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
+    extraConfig = ''
+      ${resizeSubmap}
+    '';
+
     settings = {
       exec-once ="${startupScript}/bin/start";
 
       monitor = [
-        "DVI-D-1, 1920x1080, 0x0, 1"
-        "HDMI-A-2, 1920x1080, -1920x0, 1"
+        "HDMI-A-2, 1920x1080, 0x0, 1"
+        "DVI-D-1, 1920x1080, 1920x0, 1" 
       ];
 
       "$terminal" = "${config.programs.alacritty.package}/bin/alacritty";
       "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun";
+      "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --clipboard-only";
 
       env = [
-        "XCURSOR_SIZE,24"
-        "XCURSOR_THEME,Bibata-Modern-Classic"
+        "XCURSOR_SIZE, 24"
+        "XCURSOR_THEME, Bibata-Modern-Classic"
       ];
 
       input = {
@@ -48,6 +71,15 @@ in {
 
       decoration = {
         rounding = 10;
+
+        active_opacity = 1.0;
+        inactive_opacity = 0.8;
+        fullscreen_opacity = 1.0;
+
+        blur = {
+          size = 12;
+          passes = 2;
+        };
       };
 
       animations = {
@@ -69,7 +101,7 @@ in {
         gaps_in = 5;
         gaps_out = 10;
 
-        border_size = 2;
+        border_size = 1;
 
         "col.active_border" = "rgba(dc6eefee) rgba(f47f94ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
@@ -89,30 +121,49 @@ in {
       };
 
       misc = {
-        force_default_wallpaper = -1;
+        force_default_wallpaper = 0;
       };
 
+      windowrulev2 = [];
+
+      workspace = [
+        "1, monitor:HDMI-A-2"
+      ];
+
       "$meta" = "SUPER";
-      "$mod" = "ALT";
+      "$mod" = "ALT"; 
 
       bind = [
+        # program shortcuts
         "$mod, Return, exec, $terminal"
-        "$meta, M, exit,"
         "$mod, R, exec, $menu"
+        
         "$mod, Q, killactive,"
         "$mod, W, togglefloating,"
+        "$mod, D, toggleopaque,"
         "$mod, F, fullscreen,"
         "$mod, P, pseudo,"
         "$mod, E, togglesplit,"
+        "$mod, A, submap, resize"
 
         "$mod, S, togglespecialworkspace, magic"
         "$mod SHIFT, S, movetoworkspace, special:magic"
+
+        # screenshot
+        ", PRINT, exec, $screenshot -m output"
+        "$mod, PRINT, exec, $screenshot -m window"
+        "$mod SHIFT, PRINT, exec, $screenshot -m region"
 
         # move focus
         "$mod, H, movefocus, l"
         "$mod, J, movefocus, d"
         "$mod, K, movefocus, u"
         "$mod, L, movefocus, r"
+
+        "$mod SHIFT, H, movewindow, l"
+        "$mod SHIFT, J, movewindow, d"
+        "$mod SHIFT, K, movewindow, u"
+        "$mod SHIFT, L, movewindow, r"
 
         # scroll workspace
         "$mod, mouse_down, workspace, e+1"

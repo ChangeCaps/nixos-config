@@ -1,6 +1,4 @@
-{ inputs, config, pkgs, ... }:
-
-{
+{ inputs, config, pkgs, ... }: {
   imports = [
     ./alacritty       
     ./dunst
@@ -40,7 +38,9 @@
     pulseaudio
     pavucontrol
     hyprlock
-    playerctl
+    hyprshot
+    playerctl  
+    electron # i am only here to fix electron apps
     reaper
     vesktop
     htop
@@ -106,6 +106,13 @@
       package = pkgs.bibata-cursors;
     };
   }; 
+
+  qt = {
+    enable = true;
+
+    style.name = "adwaita-dark";
+    platformTheme = "gnome";
+  };
 
   programs.git = {
     enable = true;

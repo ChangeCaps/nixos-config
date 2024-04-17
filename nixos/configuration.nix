@@ -49,7 +49,9 @@
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
+
+    # This actually breaks electron apps like discord, try enabling in the future
+    #NIXOS_OZONE_WL = "1";
   };
 
   programs.hyprland = {
@@ -60,8 +62,19 @@
     };
   };
 
+  #services.xserver = {
+  #  enable = true;
+  #  videoDrivers = [ "modesetting" "nvidia" ];
+  #  displayManager.startx.enable = true;
+  #};
+
   xdg.portal = {
     enable = true;
+
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # Nvidia config
@@ -120,9 +133,14 @@
     ];
   };
 
-  # Enable nushell
+  # Enable fish
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
+  
+  # Enable steam
+  programs.steam = {
+    enable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
