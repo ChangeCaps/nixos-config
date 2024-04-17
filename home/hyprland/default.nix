@@ -22,8 +22,8 @@ in {
         "HDMI-A-2, 1920x1080, -1920x0, 1"
       ];
 
-      "$terminal" = "${pkgs.alacritty}/bin/alacritty";
-      "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
+      "$terminal" = "${config.programs.alacritty.package}/bin/alacritty";
+      "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun";
 
       env = [
         "XCURSOR_SIZE,24"

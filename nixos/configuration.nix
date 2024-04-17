@@ -64,18 +64,11 @@
     enable = true;
   };
 
-  services.xserver = {
+  services.cage = {
     enable = true;
-    
-    displayManager.gdm.enable = true;
-
-    videoDrivers = [ "nvidia" ];
-
-    xkb = {
-      layout = "dk";
-      variant = "nodeadkeys";
-    };
-  }; 
+    program = "${pkgs.greetd.gtkgreet}/bin/gtkgreet Hyprland";
+    user = "anon";
+  };
 
   # Nvidia config
   hardware = {

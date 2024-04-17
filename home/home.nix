@@ -39,6 +39,7 @@
     spotify
     pulseaudio
     pavucontrol
+    hyprlock
     playerctl
     reaper
     vesktop
@@ -104,14 +105,7 @@
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
     };
-  };
-
-  programs.fish = {
-    enable = true; 
-    shellInit = ''
-      direnv hook fish | source
-    '';
-  };
+  }; 
 
   programs.git = {
     enable = true;

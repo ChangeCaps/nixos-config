@@ -115,13 +115,13 @@ in {
 
         "custom/launcher" = {
           format = " ";
-          on-click = "${config.programs.wofi.package} --show drun";
-          on-click-right = "${pkgs.killall} wofi";
+          on-click = "${config.programs.wofi.package}/bin/wofi --show drun";
+          on-click-right = "${pkgs.killall}/bin/killall .wofi-wrapped";
         };
 
         "custom/power" = {
           format = " ";
-          on-click = "bash ~/.config/rofi/leave/leave.sh";
+          on-click = "${pkgs.wlogout}/bin/wlogout";
         };
 
         "custom/wallpaper" = {

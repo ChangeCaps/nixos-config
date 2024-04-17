@@ -1,0 +1,65 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1713166971,
+        "narHash": "sha256-t0P/rKlsE5l1O3O2LYtAelLzp7PeoPCSzsIietQ1hSM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "1c43dcfac48a2d622797f7ab741670fdbcf8f609",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "neovim-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713093722,
+        "narHash": "sha256-wCM3HGrcUEJ2iPwNiX0pxvTOtVjmRHtvyg47MCewG58=",
+        "owner": "ChangeCaps",
+        "repo": "neovim-config",
+        "rev": "66b5f7c23362fca1819b61e18f31578ce807bd1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ChangeCaps",
+        "repo": "neovim-config",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1713254108,
+        "narHash": "sha256-0TZIsfDbHG5zibtlw6x0yOp3jkInIGaJ35B7Y4G8Pec=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "2fd19c8be2551a61c1ddc3d9f86d748f4db94f00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "neovim-config": "neovim-config",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
