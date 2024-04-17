@@ -9,7 +9,7 @@ in {
 
     settings = {
       mainBar = {
-        height = 43;
+        height = 39;
 
 	      modules-left = [ 
           "custom/launcher" 
@@ -17,7 +17,13 @@ in {
           "memory"
           "custom/media" 
         ];
-	      modules-center = [ "hyprland/workspaces" "hyprland/window" ];
+
+	      modules-center = [ 
+          "hyprland/workspaces" 
+          "hyprland/window" 
+          "hyprland/submap" 
+        ];
+
 	      modules-right = [
           "custom/updates" 
           "custom/wallpaper" 
@@ -30,6 +36,8 @@ in {
 
         "hyprland/workspaces" = {
           show-special = true;
+          all-outputs = true;
+          move-to-monitor = true;
         };
 
         "hyprland/window" = {

@@ -6,6 +6,7 @@
     ./wofi
     ./waybar
     ./wlogout
+    ./modules
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -39,30 +40,17 @@
     pavucontrol
     hyprlock
     hyprshot
-    playerctl  
-    electron # i am only here to fix electron apps
+    playerctl
     reaper
     vesktop
     htop
     nixd
     wofi
     swww
+    nh
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
     ".config/nvim".source = inputs.neovim-config;
   };
 
@@ -83,6 +71,14 @@
 
     XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"; 
   }; 
+
+  #fish = {
+  #  enable = true;
+
+  #  sessionVariables = {
+  #    FLAKE = "~/dotfiles";
+  #  };
+  #};
 
   gtk = {
     enable = true;

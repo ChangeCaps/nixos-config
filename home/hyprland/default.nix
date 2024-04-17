@@ -72,7 +72,7 @@ in {
       };
 
       decoration = {
-        rounding = 10;
+        rounding = 6;
 
         active_opacity = 1.0;
         inactive_opacity = 0.8;
@@ -154,7 +154,7 @@ in {
         # screenshot
         ", PRINT, exec, $screenshot -m output"
         "$mod, PRINT, exec, $screenshot -m window"
-        "$mod SHIFT, PRINT, exec, $screenshot -m region"
+        "SHIFT, PRINT, exec, $screenshot -m region"
 
         # move focus
         "$mod, H, movefocus, l"
@@ -189,7 +189,7 @@ in {
             x: let
               ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
             in [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod, ${ws}, focusworkspaceoncurrentmonitor, ${toString (x + 1)}"
               "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
             ]
           )
