@@ -61,7 +61,7 @@ tooltip {
 
 #custom-launcher {
   padding: 7px 6px 7px 11px;
-  border-radius: 4px;
+  border-radius: 4px 0px 0px 4px;
   font-size: 18px;
 
   background: @base0C;
