@@ -25,6 +25,9 @@ in {
     settings = {
       matching = "fuzzy";
       insensitive = true;
+
+      key_up = "Ctrl-k";
+      key_down = "Ctrl-j";
     };
   }; 
 }
