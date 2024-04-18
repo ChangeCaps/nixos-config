@@ -39,5 +39,5 @@
   git = {
     userName = "Hjalte Nannestad";
     userEmail = "hjalte.nannestad@gmail.com";
-  };  
+  };
 }

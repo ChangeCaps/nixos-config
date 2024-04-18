@@ -111,21 +111,24 @@
   users.users.anon = {
     isNormalUser = true;
     description = "anon";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
       firefox
       neofetch
     ];
   };
 
-  # Enable fish
-  programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish;
-  
+  # Enable light
+  programs.light.enable = true;
+
   # Enable steam
   programs.steam = {
     enable = true;
   };
+
+  # Enable fish
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish; 
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

@@ -29,15 +29,10 @@ tooltip {
 #battery,
 #custom-media,
 #custom-power {
-  padding: 2px 7px 2px 4px;
+  padding: 3px 7px 2px 4px;
   font-size: 14px;
 
   color: @base04;
-}
-
-#clock,
-#custom-media {
-  padding-top: 3px;
 }
 
 #pulseaudio {
