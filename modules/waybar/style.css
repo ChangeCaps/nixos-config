@@ -39,6 +39,10 @@ tooltip {
   color: @base0B;
 }
 
+#network {
+  color: @base0E;
+}
+
 #custom-power {
   padding: 2px 8px 2px 6px;
 }

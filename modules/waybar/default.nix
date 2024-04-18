@@ -87,15 +87,15 @@ in {
         network = {
           tooltip = false;
           format-wifi = "  {essid}";
-          format-ethernet = "";
+          format-ethernet = " ";
         };
 
         backlight = {
           tooltip = false;
           format =  " {}%";
           interval = 1;
-          on-scroll-up = "light -A 5";
-          on-scroll-down = "light -U 5";
+          on-scroll-up = "${pkgs.light}/bin/light -A 5";
+          on-scroll-down = "${pkgs.light}/bin/light -U 5";
         };
 
         battery = {
