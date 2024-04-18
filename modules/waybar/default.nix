@@ -3,22 +3,22 @@ let
   hyprland = config.wayland.windowManager.hyprland.package;
 
   colors = with config.colorScheme.colors; ''
-    @define-color base00 #${base00};
-    @define-color base01 #${base01};
-    @define-color base02 #${base02};
-    @define-color base03 #${base03};
-    @define-color base04 #${base04};
-    @define-color base05 #${base05};
-    @define-color base06 #${base06};
-    @define-color base07 #${base07};
-    @define-color base08 #${base08};
-    @define-color base09 #${base09};
-    @define-color base0A #${base0A};
-    @define-color base0B #${base0B};
-    @define-color base0C #${base0C};
-    @define-color base0D #${base0D};
-    @define-color base0E #${base0E};
-    @define-color base0F #${base0F};
+    @define-color base00 alpha(#${base00}, 0.9);
+    @define-color base01 alpha(#${base01}, 0.9);
+    @define-color base02 alpha(#${base02}, 0.9);
+    @define-color base03 alpha(#${base03}, 0.9);
+    @define-color base04 alpha(#${base04}, 0.9);
+    @define-color base05 alpha(#${base05}, 0.9);
+    @define-color base06 alpha(#${base06}, 0.9);
+    @define-color base07 alpha(#${base07}, 0.9);
+    @define-color base08 alpha(#${base08}, 0.9);
+    @define-color base09 alpha(#${base09}, 0.9);
+    @define-color base0A alpha(#${base0A}, 0.9);
+    @define-color base0B alpha(#${base0B}, 0.9);
+    @define-color base0C alpha(#${base0C}, 0.9);
+    @define-color base0D alpha(#${base0D}, 0.9);
+    @define-color base0E alpha(#${base0E}, 0.9);
+    @define-color base0F alpha(#${base0F}, 0.9);
   '';
 in {
   home.packages = with pkgs; [ 
@@ -33,7 +33,7 @@ in {
 
     settings = {
       mainBar = {
-        margin = "4 4 0 4";
+        margin = "8 8 0 8";
 
 	      modules-left = [
           "custom/launcher"

@@ -40,7 +40,7 @@ tooltip {
 }
 
 #custom-power {
-  padding: 2px 4px 2px 6px;
+  padding: 2px 8px 2px 6px;
 }
 
 #custom-power {
@@ -54,15 +54,15 @@ tooltip {
 }
 
 #custom-separator {
-  margin: 4px 4px;
+  margin: 7px 4px;
   border: 1px solid @base01;
   font-size: 0px;
 }
 
 #custom-launcher {
-  padding: 2px 2px 2px 5px;
+  padding: 7px 6px 7px 11px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 18px;
 
   background: @base0C;
   color: @base00;
@@ -73,9 +73,13 @@ tooltip {
   margin: 0px;
 }
 
+#window {
+  color: @base05;
+}
+
 #workspaces button {
-  margin: 0px 4px 0px 0px;
-  font-size: 20px;
+  margin: 1px 4px 0px 0px;
+  font-size: 22px;
   background: transparent;
   color: @base08;
 }
