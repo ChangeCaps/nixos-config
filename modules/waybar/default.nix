@@ -32,33 +32,33 @@ in {
 
     settings = {
       mainBar = {
-        height = 39;
+        margin = "4 4 0 4";
 
-	      modules-left = [ 
-          "custom/launcher" 
-          "cpu" 
-          "memory"
-          "custom/media" 
+	      modules-left = [
+          "custom/launcher"
+          "hyprland/workspaces"
+          "custom/separator"
+          "custom/media"
         ];
 
-	      modules-center = [ 
-          "hyprland/workspaces" 
+	      modules-center = [  
           "hyprland/window" 
-          "hyprland/submap" 
         ];
 
 	      modules-right = [
-          "custom/updates" 
-          "custom/wallpaper" 
+          "privacy"
           "backlight" 
           "pulseaudio" 
-          "clock" 
+          "network"
           "battery" 
+          "custom/separator"
+          "clock" 
+          "custom/separator"
           "custom/power"
         ];
 
         "hyprland/workspaces" = {
-          show-special = true;
+          format = "";
           all-outputs = true;
           move-to-monitor = true;
         };
@@ -69,10 +69,13 @@ in {
         };
 	
 	      pulseaudio = {
-          tooltip = false;
           scroll-step =  5;
-          format = "{icon}  {volume}%";
-          format-muted = "  {volume}%";
+          format = "{icon} ";
+          format-muted = " ";
+
+          tooltip = true;
+          tooltip-format = "{volume}%";
+
           on-click = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           on-click-right = "${hyprland}/bin/hyprctl dispatch exec [floating] ${pkgs.pavucontrol}/bin/pavucontrol";
           format-icons = {
@@ -129,6 +132,14 @@ in {
           max-length = 10;
         };
 
+        privacy = {
+          icon-size = 14;
+        };
+
+        "custom/separator" = {
+          format = "|";
+        };
+
         "custom/media" = {
           restart-interval = 30;
           format = "{icon} {}";
@@ -146,7 +157,7 @@ in {
 
         "custom/launcher" = {
           format = " ";
-          on-click = "${pkgs.wofi.package}/bin/wofi --show drun";
+          on-click = "${pkgs.wofi}/bin/wofi --show drun";
           on-click-right = "${pkgs.killall}/bin/killall .wofi-wrapped";
         };
 

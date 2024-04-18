@@ -68,8 +68,8 @@ in {
           )
           config.monitors;
 
-        "$terminal" = "${pkgs.package}/bin/alacritty";
-        "$menu" = "${pkgs.package}/bin/wofi --show drun";
+        "$terminal" = "${pkgs.alacritty}/bin/alacritty";
+        "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
         "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --clipboard-only";
 
         env = [
@@ -96,7 +96,7 @@ in {
         decoration = {
           rounding = 6;
 
-          active_opacity = 1.0;
+          active_opacity = 0.9;
           inactive_opacity = 0.8;
           fullscreen_opacity = 1.0;
 
@@ -150,7 +150,18 @@ in {
 
         windowrulev2 = [];
 
-        workspace = [];
+        workspace = [
+          "1, persistent:true"
+          "2, persistent:true"
+          "3, persistent:true"
+          "4, persistent:true"
+          "5, persistent:true"
+          "6, persistent:true"
+          "7, persistent:true"
+          "8, persistent:true"
+          "9, persistent:true"
+          "10, persistent:true"
+        ];
 
         "$meta" = "SUPER";
         "$mod" = "ALT"; 

@@ -20,11 +20,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "anon";
-  #networking.wireless.enable = true;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -49,9 +44,7 @@
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
-
-    # This actually breaks electron apps like discord, try enabling in the future
-    #NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   programs.hyprland = {
@@ -62,11 +55,7 @@
     };
   };
 
-  #services.xserver = {
-  #  enable = true;
-  #  videoDrivers = [ "modesetting" "nvidia" ];
-  #  displayManager.startx.enable = true;
-  #};
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   xdg.portal = {
     enable = true;
