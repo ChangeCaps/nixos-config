@@ -134,6 +134,7 @@ in {
         };
 
         privacy = {
+          icon-spacing = 14;
           icon-size = 14;
         };
 

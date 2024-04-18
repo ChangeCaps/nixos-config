@@ -35,6 +35,11 @@ tooltip {
   color: @base04;
 }
 
+#clock,
+#custom-media {
+  padding-top: 3px;
+}
+
 #pulseaudio {
   color: @base0B;
 }
@@ -49,7 +54,7 @@ tooltip {
   color: @base05;
 }
 
-#privacy-item.audio-in {
+#privacy-item { 
   color: @base08;
 }
 
