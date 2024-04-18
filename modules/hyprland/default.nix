@@ -68,8 +68,8 @@ in {
           )
           config.monitors;
 
-        "$terminal" = "${config.programs.alacritty.package}/bin/alacritty";
-        "$menu" = "${config.programs.wofi.package}/bin/wofi --show drun";
+        "$terminal" = "${pkgs.package}/bin/alacritty";
+        "$menu" = "${pkgs.package}/bin/wofi --show drun";
         "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --clipboard-only";
 
         env = [

@@ -34,11 +34,9 @@
     }
   ];
 
-  fish = {
-    sessionVariables = {
-      FLAKE = "~/dotfiles";
-    };
-  }; 
+  nh = {
+    flake = "~/dotfiles";
+  };
 
   git = {
     userName = "Hjalte Nannestad";

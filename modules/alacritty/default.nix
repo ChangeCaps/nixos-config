@@ -18,6 +18,8 @@
 
         cursor.style = "Block";
 
+        env.TERM = "xterm-256color";
+
         font.size = 9.0;
         font.normal.family = "Noto Sans Mono";
         font.bold.family = "Noto Sans Mono";
@@ -37,15 +39,11 @@
         ];
 
         colors = with config.colorScheme.colors; {
-          bright = {
-            black = "0x${base00}";
-            blue = "0x${base0D}";
-            cyan = "0x${base0C}";
-            green = "0x${base0B}";
-            magenta = "0x${base0E}";
-            red = "0x${base08}";
-            white = "0x${base06}";
-            yellow = "0x${base09}";
+          draw_bold_text_with_bright_colors = false;
+
+          primary = {
+            background = "0x${base00}";
+            foreground = "0x${base05}";
           };
           cursor = {
             cursor = "0x${base05}";
@@ -53,18 +51,23 @@
           };
           normal = {
             black = "0x${base00}";
-            blue = "0x${base0D}";
-            cyan = "0x${base0C}";
-            green = "0x${base0B}";
-            magenta = "0x${base0E}";
             red = "0x${base08}";
-            white = "0x${base06}";
-            yellow = "0x${base09}";
+            green = "0x${base0B}";
+            yellow = "0x${base0A}";
+            blue = "0x${base0D}";
+            magenta = "0x${base0E}";
+            cyan = "0x${base0C}";
+            white = "0x${base05}";
           };
-          primary = {
-            background = "0x${base00}";
-            foreground = "0x${base05}";
-          };
+          bright = {
+            black = "0x${base00}";
+            red = "0x${base08}";
+            green = "0x${base0B}";
+            yellow = "0x${base0A}";
+            blue = "0x${base0D}";
+            magenta = "0x${base0E}";
+            cyan = "0x${base0C}";
+            white = "0x${base05}";          }; 
         };
       };
     };

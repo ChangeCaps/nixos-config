@@ -11,6 +11,7 @@
     ./hyprland
     ./monitors
     ./neovim
+    ./nh
     ./theme
     ./user
     ./waybar

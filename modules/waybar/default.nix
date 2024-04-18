@@ -146,7 +146,7 @@ in {
 
         "custom/launcher" = {
           format = " ";
-          on-click = "${config.programs.wofi.package}/bin/wofi --show drun";
+          on-click = "${pkgs.wofi.package}/bin/wofi --show drun";
           on-click-right = "${pkgs.killall}/bin/killall .wofi-wrapped";
         };
 

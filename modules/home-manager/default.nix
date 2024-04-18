@@ -15,6 +15,5 @@
     python3
     killall
     htop
-    nh
   ] ++ config.user.packages; 
 }
