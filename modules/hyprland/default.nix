@@ -7,7 +7,7 @@ let
 
     sleep 1
 
-    ${pkgs.swww}/bin/swww img ${config.hyprland.wallpaper} &
+    ${pkgs.swww}/bin/swww img ${config.wallpaper} &
   ''; 
 
   resizeSubmap = ''
@@ -30,23 +30,17 @@ let
     submap = reset
   '';
 in { 
-  options.hyprland = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-      description = "Enable the Hyprland window manager";
-    };
-
+  options = {
     wallpaper = lib.mkOption {
       type = with lib.types; path;
-      default = ../../wallpaper.png;
+      default = ../../wallpaper/default.jpg;
       description = "The wallpaper to use";
     };
   };
 
   config = {
     wayland.windowManager.hyprland = {
-      enable = config.hyprland.enable;
+      enable = true;
 
       xwayland.enable = true;
 

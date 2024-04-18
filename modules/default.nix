@@ -9,6 +9,7 @@
     ./git
     ./home-manager
     ./hyprland
+    ./hyprlock
     ./monitors
     ./neovim
     ./nh

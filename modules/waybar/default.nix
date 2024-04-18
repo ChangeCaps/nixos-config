@@ -23,6 +23,7 @@ let
 in {
   home.packages = with pkgs; [ 
     pkgs.playerctl
+    pkgs.fira
   ];
 
   programs.waybar = {
@@ -142,7 +143,7 @@ in {
 
         "custom/media" = {
           restart-interval = 30;
-          format = "{icon} {}";
+          format = "{icon}  {}";
           return-type = "json";
           max-length = 20;
 
