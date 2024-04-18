@@ -7,7 +7,7 @@
     ../modules
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;  
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
   user = {
     name = "anon";

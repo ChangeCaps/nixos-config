@@ -15,7 +15,7 @@ window#waybar.hidden {
 }
 
 window #window {
-  color: #B5E8E0;
+  color: @base0C;
 }
 
 #window {
@@ -34,7 +34,7 @@ window #window {
   padding-right: 10px;
   border-radius: 6px;
   transition: none;
-  color: #f4cd58;
+  color: @base0A;
   background: transparent;
 }
 
@@ -43,47 +43,47 @@ window #window {
 	margin-left: 12px;
 	margin-bottom: 0px;
 	border-radius: 6px;
-	background: #161320;
+	background: @base00;
 	transition: none;
 }
 
 #workspaces button {
 	transition: none;	
-  color: #F28FAD;
+  color: @base08;
 	background: transparent;
 	border-radius: 6px;
 }
 
 #workspaces button.empty {
 	transition: none;	
-  color: #B5E8E0;
+  color: @base0D;
 	background: transparent;
 }
 
 #workspaces button.visible {
-  color: #f4cd58;
+  color: @base0A;
 }
 
 #workspaces button.active {
-	color: #ABE9B3;
+	color: @base0B;
 
 	border-radius: 2px;
-  border-top: 2px solid #ABE9B3;
-  border-bottom: 2px solid #ABE9B3;
+  border-top: 2px solid @base0B;
+  border-bottom: 2px solid @base0B;
 }
 
 #workspaces button.special {
-  color: #f4cd58;
+  color: @base0A;
 }
 
 #workspaces button:hover {
 	transition: none;
-  background: #1f1b2d;
+  background: @base00;
 }
 
 #workspaces button.active:hover {
 	transition: none;
-  background: #1f1b2d;
+  background: @base00;
 }
 
 #network {
@@ -94,8 +94,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #bd93f9;
+	color: @base00;
+	background: @base0E;
 }
 
 #pulseaudio {
@@ -106,8 +106,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #1A1826;
-	background: #FAE3B0;
+	color: @base00;
+	background: @base0A;
 }
 
 #battery {
@@ -118,18 +118,18 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #B5E8E0;
+	color: @base00;
+	background: @base0A;
 }
 
 #battery.charging, #battery.plugged {
-	color: #161320;
-  background-color: #B5E8E0;
+	color: @base00;
+  background-color: @base0A;
 }
 
 #battery.critical:not(.charging) {
-  background-color: #B5E8E0;
-  color: #161320;
+  background-color: @base0A;
+  color: @base00;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -139,8 +139,8 @@ window #window {
 
 @keyframes blink {
   to {
-    background-color: #BF616A;
-    color: #B5E8E0;
+    background-color: @base08;
+    color: @base0A;
   }
 }
 
@@ -152,8 +152,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #F8BD96;
+	color: @base00;
+	background: @base09;
 }
 
 #clock {
@@ -164,8 +164,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #ABE9B3;
+	color: @base00;
+	background: @base0B;
 }
 
 #memory {
@@ -176,8 +176,8 @@ window #window {
 	padding-right: 10px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #DDB6F2;
+	color: @base00;
+	background: @base0E;
 }
 
 #cpu {
@@ -188,8 +188,8 @@ window #window {
 	padding-right: 10px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #96CDFB;
+	color: @base00;
+	background: @base0C;
 }
 
 #tray {
@@ -200,8 +200,8 @@ window #window {
 	padding-right: 10px;
 	border-radius: 6px;
 	transition: none;
-	color: #B5E8E0;
-	background: #161320;
+	color: @base0C;
+	background: @base00;
 }
 
 #custom-launcher {
@@ -212,8 +212,8 @@ window #window {
 	padding-right: 5px;
 	border-radius: 6px;
 	transition: none;
-  color: #89DCEB;
-  background: #161320;
+  color: @base0C;
+  background: @base00;
 }
 
 #custom-power {
@@ -226,8 +226,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #F28FAD;
+	color: @base00;
+	background: @base08;
 }
 
 #custom-wallpaper {
@@ -238,8 +238,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #C9CBFF;
+	color: @base00;
+	background: @base06;
 }
 
 #custom-updates {
@@ -250,8 +250,8 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #E8A2AF;
+	color: @base00;
+	background: @base08;
 }
 
 #custom-media {
@@ -262,6 +262,6 @@ window #window {
 	margin-bottom: 0px;
 	border-radius: 6px;
 	transition: none;
-	color: #161320;
-	background: #F2CDCD;
+	color: @base00;
+	background: @base09;
 }

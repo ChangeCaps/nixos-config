@@ -5,31 +5,31 @@
 }
 
 #window {
-    background-color: #292a37;
-    border-radius: 12px;
+    background-color: @base00;
+    border-radius: 6px;
 }
 
 #outer-box {
-    background-color: #292a37;
-    border: 4px solid #44465c;
-    border-radius: 12px;
+    background-color: @base00;
+    border: 4px solid @base02;
+    border-radius: 6px;
 }
 
-#input{
+#input {
     margin: 1rem;
     padding: 0.5rem;
-    border-radius: 10px;
-    background-color: #303241;
+    border-radius: 6px;
+    background-color: @base01;
 }
 
 #entry {
     margin: 0.25rem 0.75rem 0.25rem 0.75rem;
     padding: 0.25rem 0.75rem 0.25rem 0.75rem;
-    color: #9699b7;
-    border-radius: 8px;
+    color: @base04; 
+    border-radius: 4px;
 }
 
 #entry:selected {
-    background-color: #303241;
-    color: #d9e0ee;
+    background-color: @base02;
+    color: @base05;
 }
