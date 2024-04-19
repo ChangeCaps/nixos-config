@@ -94,6 +94,12 @@ in {
           inactive_opacity = 0.8;
           fullscreen_opacity = 1.0;
 
+          drop_shadow = true;
+          shadow_range = 4;
+          shadow_render_power = 3;
+
+          "col.shadow" = "rgba(${base00}aa)";
+
           blur = {
             size = 12;
             passes = 2;
