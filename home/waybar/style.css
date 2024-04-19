@@ -4,7 +4,6 @@
   margin: 0;
 	border: none;
   border-radius: 0;
-  font-family: "Fira";
   min-height: 0;
 }
 
@@ -19,6 +18,7 @@ tooltip {
 #waybar {
   background: @base00;
   border-radius: 4px;
+  font-family: "Fira";
 }
 
 #privacy,
@@ -41,6 +41,9 @@ tooltip {
 
 #network {
   color: @base0E;
+  font-family: "Material Symbols Rounded";
+  font-weight: normal;
+  font-style: normal;
 }
 
 #custom-power {

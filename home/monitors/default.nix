@@ -36,6 +36,12 @@
           type = lib.types.bool;
           default = true;
         };
+
+        workspace = lib.mkOption {
+          type = lib.types.nullOr lib.types.int;
+          default = null;
+          description = "The workspace assigned to the monitor.";
+        };
       };
     });
 

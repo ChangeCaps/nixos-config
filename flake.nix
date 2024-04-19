@@ -42,7 +42,14 @@
       anon = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        modules = [ ./home/home.nix ];
+        modules = [ 
+          # Include the default Home Manager modules.
+          inputs.nix-colors.homeManagerModules.default
+          inputs.hyprlock.homeManagerModules.default
+
+          ./home
+          ./home.nix 
+        ];
 
         extraSpecialArgs = {
           inherit inputs;
@@ -52,7 +59,10 @@
 
     nixosConfigurations = {
       anon = nixpkgs.lib.nixosSystem rec {
-        modules = [ ./nixos/configuration.nix ];
+        modules = [ 
+          ./system
+          ./configuration.nix 
+        ];
 
         specialArgs = { 
           inherit inputs; 

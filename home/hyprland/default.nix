@@ -144,18 +144,17 @@ in {
 
         windowrulev2 = [];
 
-        workspace = [
-          "1, persistent:true"
-          "2, persistent:true"
-          "3, persistent:true"
-          "4, persistent:true"
-          "5, persistent:true"
-          "6, persistent:true"
-          "7, persistent:true"
-          "8, persistent:true"
-          "9, persistent:true"
-          "10, persistent:true"
-        ];
+        #workspace = [];
+
+        workspace = (builtins.genList 
+          (x: let
+            name = builtins.toString (x + 1);  
+            monitor = lib.lists.findFirst (m: m.workspace == x + 1) null config.monitors;
+            monitorOption = if monitor != null then ", monitor:${monitor.name}" else "";
+          in 
+          "${name}, persistent:true${monitorOption}")
+          10
+        );
 
         "$meta" = "SUPER";
         "$mod" = "ALT"; 

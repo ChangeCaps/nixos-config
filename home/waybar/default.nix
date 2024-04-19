@@ -1,6 +1,7 @@
 { inputs, config, pkgs, ... }: 
 let 
   hyprland = config.wayland.windowManager.hyprland.package;
+  execFloating = cmd: "${hyprland}/bin/hyprctl dispatch exec [floating] ${cmd}";
 
   colors = with config.colorScheme.colors; ''
     @define-color base00 alpha(#${base00}, 0.9);
@@ -78,16 +79,24 @@ in {
           tooltip-format = "{volume}%";
 
           on-click = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          on-click-right = "${hyprland}/bin/hyprctl dispatch exec [floating] ${pkgs.pavucontrol}/bin/pavucontrol";
+          on-click-right = execFloating "${pkgs.pavucontrol}/bin/pavucontrol";
           format-icons = {
             default = [ "" "" "" ];
           };
         };
 
         network = {
-          tooltip = false;
-          format-wifi = "  {essid}";
-          format-ethernet = " ";
+          tooltip = true;
+          tooltip-format-wifi = "wifi: {essid} {signalStrength}%";
+          tooltip-format-ethernet = "eth: {ifname}";
+          tooltip-format-disconnected = "disconnected";
+
+          format-wifi = "network_wifi";
+          format-ethernet = "lan";
+          format-linked = "public_off";
+          format-disconnected = "signal_disconnect";
+
+          on-click = execFloating "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
 
         backlight = {

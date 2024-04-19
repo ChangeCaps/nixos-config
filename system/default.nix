@@ -1,14 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./locale
+    ./nvidia
+  ];
 
   # Bootloader.
   boot.loader.grub = {
@@ -22,25 +18,7 @@
   networking.hostName = "anon";
 
   # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_DK.UTF-8";
-    LC_IDENTIFICATION = "en_DK.UTF-8";
-    LC_MEASUREMENT = "en_DK.UTF-8";
-    LC_MONETARY = "en_DK.UTF-8";
-    LC_NAME = "en_DK.UTF-8";
-    LC_NUMERIC = "en_DK.UTF-8";
-    LC_PAPER = "en_DK.UTF-8";
-    LC_TELEPHONE = "en_DK.UTF-8";
-    LC_TIME = "en_DK.UTF-8";
-  }; 
+  networking.networkmanager.enable = true; 
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -54,8 +32,6 @@
       enable = true;
     };
   };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   xdg.portal = {
     enable = true;
@@ -72,13 +48,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-    };
-      
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      open = false;
     };
   };
 
@@ -137,13 +106,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager
-    kitty
   ];
 
   # Add fonts
   fonts.packages = with pkgs; [
     noto-fonts
     nerdfonts
+    material-symbols
   ];
 
   # Enable experimental features
