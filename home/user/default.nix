@@ -13,12 +13,6 @@
       type = lib.types.str;
       default = "/home/${config.user.name}";
       description = "The home directory of the user.";
-    };
-
-    packages = lib.mkOption {
-      type = lib.types.listOf lib.types.package;
-      default = [];
-      description = "Packages to be installed for the user.";
-    };
+    }; 
   };
 }

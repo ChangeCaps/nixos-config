@@ -1,7 +1,7 @@
 { inputs, config, pkgs, ... }: 
 
 {
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   user = {
     name = "anon";
@@ -16,6 +16,7 @@
     spotify
     reaper
     vesktop
+    musescore
   ];
 
   monitors = [

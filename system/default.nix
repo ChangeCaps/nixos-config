@@ -60,6 +60,12 @@
   # Enable flatpak.
   services.flatpak.enable = true;
 
+  # Enable GVFS for mounting remote filesystems.
+  services.gvfs.enable = true;
+
+  # Enable thumbnails for file managers.
+  services.tumbler.enable = true;
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -80,10 +86,12 @@
   users.users.anon = {
     isNormalUser = true;
     description = "anon";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     packages = with pkgs; [
       firefox
       neofetch
+      gnome.nautilus
+      ark
     ];
   };
 

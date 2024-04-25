@@ -13,6 +13,7 @@
   };
 
   home.packages = [
+    pkgs.fd
     pkgs.lazygit
     pkgs.nodejs 
     pkgs.nixd
