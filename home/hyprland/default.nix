@@ -135,6 +135,23 @@ in {
           allow_tearing = false;
         };
 
+        group = {
+          "col.border_active" = "rgba(${base0E}ee) rgba(${base08}ee) 45deg";
+          "col.border_inactive" = "rgba(${base03}dd)";
+
+          groupbar = {
+            enabled = true;
+            font_family = "Fira Mono Bold";
+            font_size = 9;
+            text_color = "rgba(${base06}ee)";
+
+            gradients = true;
+
+            "col.active" = "rgba(${base0E}44)";
+            "col.inactive" = "rgba(${base03}44)";
+          };
+        };
+
         dwindle = {
           pseudotile = true;
           preserve_split = true;
@@ -177,6 +194,10 @@ in {
           "$mod, P, pseudo,"
           "$mod, E, togglesplit,"
           "$mod, A, submap, resize"
+
+          # Group shortcuts
+          "$mod, G, togglegroup,"
+          "$mod, TAB, changegroupactive, f"
 
           "$mod, S, togglespecialworkspace, magic"
           "$mod SHIFT, S, movetoworkspace, special:magic"
