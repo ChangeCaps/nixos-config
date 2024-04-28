@@ -23,7 +23,7 @@
     neovim-config = {
       url = "github:ChangeCaps/neovim-config";
       flake = false;
-    }; 
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: 
@@ -58,7 +58,7 @@
     };
 
     nixosConfigurations = {
-      anon = nixpkgs.lib.nixosSystem rec {
+      anon = nixpkgs.lib.nixosSystem {
         modules = [ 
           ./system
           ./configuration.nix 

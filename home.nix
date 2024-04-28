@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: 
+{ inputs, config, pkgs, lib, ... }: 
 
 {
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
@@ -11,13 +11,44 @@
     python3
     rustup
     zig
+    zls
     obsidian
     renderdoc
     spotify
     reaper
+    ripgrep
+    gdb
     vesktop
     musescore
+
+    /* audio */
+    vital
+    lsp-plugins
+    dragonfly-reverb
+    geonkick
+    tap-plugins
+    talentedhack
+    sfizz
   ];
+
+  home.sessionVariables = let 
+    makePluginPath = format:
+      (lib.strings.makeSearchPath format [
+        "$HOME"
+        "$HOME/.nix-profile/lib"
+        "/run/current-system/sw/lib"
+        "/etc/profiles/per-user/$USER/lib"
+      ])
+      + ":$HOME/.${format}";
+  in {
+    CLAP_PATH = makePluginPath "clap";
+    DSSI_PATH = makePluginPath "dssi";
+    LADSPA_PATH = makePluginPath "ladspa";
+    LV2_PATH = makePluginPath "lv2";
+    LXVST_PATH = makePluginPath "lxvst";
+    VST_PATH = makePluginPath "vst";
+    VST3_PATH = makePluginPath "vst3";
+  };
 
   monitors = [
     {
