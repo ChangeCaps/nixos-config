@@ -29,6 +29,7 @@
     tap-plugins
     talentedhack
     sfizz
+    helvum
   ];
 
   home.sessionVariables = let 

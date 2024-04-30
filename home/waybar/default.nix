@@ -22,7 +22,7 @@ let
     @define-color base0F alpha(#${base0F}, 0.9);
   '';
 in {
-  home.packages = with pkgs; [ 
+  home.packages = [ 
     pkgs.playerctl
     pkgs.fira
   ];

@@ -15,6 +15,12 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable the rt kernel
+  boot.kernelPackages = pkgs.linuxPackages-rt_latest;
+
+  # Set vm.swappiness to 10
+  boot.kernel.sysctl."vm.swappiness" = 10;
+
   networking.hostName = "anon";
 
   # Enable networking
@@ -78,10 +84,36 @@
     # If you want to use JACK applications, uncomment this
     jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    raopOpenFirewall = true;
+
+    extraConfig = {
+      pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 128;
+          "default.clock.min-quantum" = 32;
+          "default.clock.max-quantum" = 128;
+        };
+      };
+    };
   };
+
+  services.udev = {
+    extraRules = ''
+      KERNEL=="rtc0", group="audio"
+      KERNEL=="hpet", group="audio"
+      DEVPATH=="/devices/virtual/misc/cpu_dma_latency", OWNER="root", GROUP="audio", MODE="0660"
+    '';
+  };
+
+  powerManagement.cpuFreqGovernor = "performance";
+
+  security.pam.loginLimits = [
+    { domain = "@audio"; item = "memlock"; type = "-"   ; value = "unlimited"; }
+    { domain = "@audio"; item = "rtprio" ; type = "-"   ; value = "99"       ; }
+    { domain = "@audio"; item = "nofile" ; type = "soft"; value = "99999"    ; }
+    { domain = "@audio"; item = "nofile" ; type = "hard"; value = "99999"    ; }
+  ];
 
   users.users.anon = {
     isNormalUser = true;

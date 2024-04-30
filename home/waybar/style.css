@@ -99,7 +99,7 @@ tooltip {
   color: @base0A;
 }
 
-#workspaces button.active {
+#workspaces button.visible.hosting-monitor {
   color: @base0B;
 }
 
