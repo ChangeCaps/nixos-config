@@ -167,8 +167,6 @@ in {
 
         windowrulev2 = [];
 
-        #workspace = [];
-
         workspace = (builtins.genList 
           (x: let
             name = builtins.toString (x + 1);  

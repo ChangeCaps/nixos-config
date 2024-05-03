@@ -10,8 +10,6 @@
   packages = with pkgs; [
     python3
     rustup
-    zig
-    zls
     obsidian
     renderdoc
     spotify
@@ -30,6 +28,10 @@
     talentedhack
     sfizz
     helvum
+  ];
+
+  home.sessionPath = [
+    "$HOME/zls-x86_64-linux"
   ];
 
   home.sessionVariables = let 
