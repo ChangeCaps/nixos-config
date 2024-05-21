@@ -16,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable the rt kernel
-  boot.kernelPackages = pkgs.linuxPackages-rt_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   # Set vm.swappiness to 10
   boot.kernel.sysctl."vm.swappiness" = 10;
@@ -42,20 +42,8 @@
   xdg.portal = {
     enable = true;
 
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
-  # Nvidia config
-  hardware = {
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-  };
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  }; 
 
   # Configure console keymap
   console.keyMap = "dk-latin1";

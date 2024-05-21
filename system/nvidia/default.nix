@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let 
   cfg = config.nvidia;
@@ -9,11 +9,16 @@ in {
       default = false;
       description = "Enable NVIDIA drivers";
     };
+
+    package = lib.mkOption {
+      type = lib.types.package;
+      default = config.boot.kernelPackages.nvidiaPackages.stable;
+      description = "NVIDIA driver package to use";
+    };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf cfg.enable {
-      services.xserver.videoDrivers = [ "nvidia" ];
+  config = lib.mkIf cfg.enable {
+    services.xserver.videoDrivers = [ "nvidia" ];
 
       hardware.nvidia = {
         modesetting.enable = true;

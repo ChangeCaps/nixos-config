@@ -84,7 +84,7 @@ in {
             natural_scroll = false;
           };
 
-          sensitivity = 0.2;
+          sensitivity = 0.34;
         };
 
         decoration = {
