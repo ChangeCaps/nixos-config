@@ -231,6 +231,10 @@ in {
           ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
           ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
           ", XF86AudioStop, exec, ${pkgs.playerctl}/bin/playerctl stop"
+
+          # brightness control
+          ", XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -A 10"
+          ", XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -U 10"
         ] ++ (
           # workspaces
           # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}

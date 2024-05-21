@@ -51,6 +51,7 @@ in {
           "privacy"
           "backlight" 
           "pulseaudio" 
+          "custom/separator"
           "network"
           "battery" 
           "custom/separator"
@@ -72,11 +73,8 @@ in {
 	
 	      pulseaudio = {
           scroll-step =  5;
-          format = "{icon} ";
-          format-muted = " ";
-
-          tooltip = true;
-          tooltip-format = "{volume}%";
+          format = "{icon}   {volume}%";
+          format-muted = "   {volume}%";
 
           on-click = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           on-click-right = execFloating "${pkgs.pavucontrol}/bin/pavucontrol";
@@ -101,7 +99,7 @@ in {
 
         backlight = {
           tooltip = false;
-          format =  " {}%";
+          format =  "  {}%";
           interval = 1;
           on-scroll-up = "${pkgs.light}/bin/light -A 5";
           on-scroll-down = "${pkgs.light}/bin/light -U 5";
@@ -114,10 +112,10 @@ in {
             critical = 20;
           };
 
-          format = "{icon}  {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-alt =  "{time} {icon}";
+          format = "{icon} ";
+          format-charging = "  {capacity}%";
+          format-plugged = "  {capacity}%";
+          format-alt =  "{time}   {icon}";
           format-icons = [ "" "" "" "" "" ];
         };
 
@@ -132,13 +130,13 @@ in {
 
         cpu = {
           interval = 15;
-          format = " {}%";
+          format = "  {}%";
           max-length = 10;
         };
 
         memory = {
           interval = 30;
-          format = " {}%";
+          format = "  {}%";
           max-length = 10;
         };
 
@@ -153,7 +151,7 @@ in {
 
         "custom/media" = {
           restart-interval = 30;
-          format = "{icon}  {}";
+          format = "{icon}   {}";
           return-type = "json";
           max-length = 20;
 

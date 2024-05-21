@@ -35,6 +35,14 @@ tooltip {
   color: @base04;
 }
 
+#backlight {
+  color: @base0D;
+}
+
+#battery {
+  color: @base0A;
+}
+
 #pulseaudio {
   color: @base0B;
 }
