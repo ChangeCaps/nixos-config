@@ -29,7 +29,7 @@ tooltip {
 #battery,
 #custom-media,
 #custom-power {
-  padding: 3px 7px 2px 4px;
+  padding: 3px 5px 2px 5px;
   font-size: 14px;
 
   color: @base04;
@@ -84,7 +84,7 @@ tooltip {
 }
 
 #workspaces {
-  padding: 0px 4px;
+  padding: 0px 4px 0px 8px;
   margin: 0px;
 }
 
@@ -93,7 +93,8 @@ tooltip {
 }
 
 #workspaces button {
-  margin: 1px 4px 0px 0px;
+  margin: 1px 0px 0px -2px;
+  padding-right: 6px;
   font-size: 22px;
   background: transparent;
   color: @base08;
