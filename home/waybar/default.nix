@@ -92,7 +92,7 @@ in {
           format-wifi = "network_wifi";
           format-ethernet = "lan";
           format-linked = "public_off";
-          format-disconnected = "signal_disconnect";
+          format-disconnected = "signal_disconnected";
 
           on-click = execFloating "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         };
