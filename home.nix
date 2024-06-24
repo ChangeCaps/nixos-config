@@ -1,16 +1,6 @@
 { inputs, config, pkgs, lib, ... }: 
 
-let 
-  fix-electron = (package: 
-    package.overrideAttrs(oldAttrs: {
-      nativeBuildInputs = oldAttrs.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
-
-      postFixup = (oldAttrs.postFixup or "") + ''
-        chmod +x $out/bin/${package.meta.mainProgram}
-        wrapProgram $out/bin/${package.meta.mainProgram} --append-flags "--use-angle=opengl"
-      '';
-    }));
-in {
+{
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   user = {
@@ -20,13 +10,15 @@ in {
   packages = with pkgs; [
     python3
     rustup
-    (fix-electron logseq)
     renderdoc
-    (fix-electron spotify)
+    spotify
     reaper
     ripgrep
     gdb
-    (fix-electron vesktop)
+    (logseq.override {
+      electron = electron_27;
+    })
+    vesktop
     musescore
     godot_4
     blender
@@ -73,17 +65,14 @@ in {
 
   monitors = [
     {
-      name = "DP-1";
+      name = "eDP-1";
       position = "0x0";
     }
     {
       name = "HDMI-A-2";
       position = "1920x0";
       workspace = 1;
-    }
-    {
-      name = "DVI-D-1";
-      position = "3840x0";
+      scale = 1.5;
     }
   ];
 
