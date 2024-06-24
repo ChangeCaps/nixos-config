@@ -12,9 +12,6 @@ let
       '';
     }));
 in {
-   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
- 
-   user = {
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   user = {
