@@ -26,9 +26,9 @@ in {
     reaper
     ripgrep
     gdb
-    (fix-electron logseq.override {
+    (fix-electron (logseq.override {
       electron = electron_27;
-    })
+    }))
     (fix-electron vesktop)
     musescore
     godot_4
