@@ -84,6 +84,9 @@ in {
             natural_scroll = false;
           };
 
+          repeat_rate = 40;
+          repeat_delay = 250;
+
           sensitivity = 0.34;
         };
 

@@ -12,7 +12,7 @@ in {
 
     package = lib.mkOption {
       type = lib.types.package;
-      default = config.boot.kernelPackages.nvidiaPackages.stable;
+      default = config.boot.kernelPackages.nvidiaPackages.beta;
       description = "NVIDIA driver package to use";
     };
   };
@@ -24,7 +24,7 @@ in {
       modesetting.enable = true;
       powerManagement.enable = true;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = cfg.package;
       open = false;
     };
   };

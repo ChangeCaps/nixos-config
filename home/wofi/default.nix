@@ -23,7 +23,6 @@ in {
     enable = true;
     style = colors + builtins.readFile ./style.css;
     settings = {
-      matching = "fuzzy";
       insensitive = true;
 
       key_up = "Ctrl-k";

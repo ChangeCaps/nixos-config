@@ -1,8 +1,11 @@
 { inputs, config, pkgs, ... }: 
 
 {
-  home.file = {
-    ".config/nvim".source = inputs.neovim-config;
+  xdg.configFile = {
+    "nvim" = {
+      recursive = true;
+      source = inputs.neovim-config;
+    };
   };
 
   programs.neovim = {
@@ -15,7 +18,13 @@
   home.packages = [
     pkgs.fd
     pkgs.lazygit
+    pkgs.lua-language-server
     pkgs.nodejs 
     pkgs.nixd
+    pkgs.wl-clipboard
   ];
+
+  home.sessionVariables = {
+    NVIM_LISTEN_ADDRESS = "127.0.0.1:55432";
+  };
 }

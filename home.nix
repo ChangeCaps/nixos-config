@@ -28,6 +28,14 @@ in {
     gdb
     (fix-electron vesktop)
     musescore
+    godot_4
+    blender
+    rustup
+    neovide
+
+    /* c development */
+    gnumake
+    bear
 
     /* audio */
     vital
@@ -61,17 +69,21 @@ in {
     LXVST_PATH = makePluginPath "lxvst";
     VST_PATH = makePluginPath "vst";
     VST3_PATH = makePluginPath "vst3";
-  };
+  }; 
 
   monitors = [
     {
-      name = "HDMI-A-2";
+      name = "DP-1";
       position = "0x0";
+    }
+    {
+      name = "HDMI-A-2";
+      position = "1920x0";
       workspace = 1;
     }
     {
       name = "DVI-D-1";
-      position = "1920x0";
+      position = "3840x0";
     }
   ];
 
