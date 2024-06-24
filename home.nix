@@ -1,6 +1,20 @@
 { inputs, config, pkgs, lib, ... }: 
 
-{
+ 
+let
+  fix-electron = (package:
+    package.overrideAttrs(oldAttrs: {
+      nativeBuildInputs = oldAttrs.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
+
+      postFixup = (oldAttrs.postFixup or "") + ''
+        chmod +x $out/bin/${package.meta.mainProgram}
+        wrapProgram $out/bin/${package.meta.mainProgram} --append-flags "--use-angle=opengl"
+      '';
+    }));
+in {
+   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+ 
+   user = {
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   user = {
@@ -11,14 +25,14 @@
     python3
     rustup
     renderdoc
-    spotify
+    (fix-electron spotify)
     reaper
     ripgrep
     gdb
-    (logseq.override {
+    (fix-electron logseq.override {
       electron = electron_27;
     })
-    vesktop
+    (fix-electron vesktop)
     musescore
     godot_4
     blender
