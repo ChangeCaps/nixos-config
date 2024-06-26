@@ -6,7 +6,7 @@ My personal nixos config.
 ## Setup
 You want to create a directory called nixos-flake in your home directory.
 ```
-/home/myuser
+/home/myuser/
 └── nixos-flake/
     ├── nixos-config/
     ├── flake.nix
@@ -99,6 +99,7 @@ Here is a template for your ``home.nix``.
 ### system.nix
 This is where you configure your system settings. Same idea as with ``home.nix``, put as few things as possible in here. When you edit this file, run ``nh os switch``.
 
+Here is a template for your ``system.nix``.
 ```nix
 { ... }:
 
