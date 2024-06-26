@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, user, ... }:
+{ inputs, config, pkgs, lib, username, ... }:
 
 let
   fix-electron = (package:
@@ -61,8 +61,8 @@ in {
     home.stateVersion = "23.11"; 
 
     # We really want to be sure the user name is set.
-    home.username = user;
-    home.homeDirectory = "/home/${user}";
+    home.username = assert username != null; username;
+    home.homeDirectory = "/home/${config.home.username}";
 
     home.packages = [
       pkgs.flatpak

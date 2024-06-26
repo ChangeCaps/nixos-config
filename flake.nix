@@ -38,7 +38,7 @@
       };
     };
   in {
-    setup = { home, system, user, hostname }: {
+    setup = { home, system, username, hostname }: {
       homeConfigurations = {
         anon = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -53,7 +53,7 @@
 
           extraSpecialArgs = {
             inherit inputs;
-            inherit user;
+            inherit username;
           };
         };
       };
@@ -67,7 +67,7 @@
 
           specialArgs = { 
             inherit inputs; 
-            inherit user;
+            inherit username;
             inherit hostname;
           };
         };

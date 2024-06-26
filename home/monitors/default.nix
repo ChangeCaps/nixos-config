@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }: 
+{ lib, ... }: 
 
 {
   options.monitors = lib.mkOption {
