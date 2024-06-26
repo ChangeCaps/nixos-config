@@ -1,7 +1,15 @@
-{ inputs, config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, user, ... }:
 
 let
-  user = config.user; 
+  fix-electron = (package:
+    package.overrideAttrs(oldAttrs: {
+      nativeBuildInputs = oldAttrs.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
+
+      postFixup = (oldAttrs.postFixup or "") + ''
+        chmod +x $out/bin/${package.meta.mainProgram}
+        wrapProgram $out/bin/${package.meta.mainProgram} --append-flags "--use-angle=opengl"
+      '';
+    }));
 in {
   imports = [
     # Include all the modules.
@@ -16,14 +24,20 @@ in {
     ./monitors
     ./neovim
     ./nh
+    ./reaper
     ./theme
-    ./user
     ./waybar
     ./wlogout
     ./wofi 
   ];
 
   options = {
+    theme = lib.mkOption {
+      type = lib.types.str;
+      default = "catppuccin-mocha";
+      description = "The theme to use.";
+    };
+
     packages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = [];
@@ -42,16 +56,34 @@ in {
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
+    colorScheme = inputs.nix-colors.colorSchemes.${config.theme};
+
     home.stateVersion = "23.11"; 
 
     # We really want to be sure the user name is set.
-    home.username = assert user ? name; user.name;
-    home.homeDirectory = user.home;
+    home.username = user;
+    home.homeDirectory = "/home/${user}";
 
-    home.packages = with pkgs; [
-      flatpak
-      killall
-      htop
+    home.packages = [
+      pkgs.flatpak
+      pkgs.killall
+      pkgs.htop
+      pkgs.python3
+      pkgs.rustup
+      pkgs.renderdoc
+      (fix-electron pkgs.spotify)
+      pkgs.ripgrep
+      pkgs.gdb
+      (fix-electron pkgs.vesktop)
+      pkgs.musescore
+      pkgs.godot_4
+      pkgs.blender
+      pkgs.rustup
+      pkgs.neovide
+
+      /* c development */
+      pkgs.gnumake
+      pkgs.bear 
     ] ++ config.packages; 
   }; 
 }

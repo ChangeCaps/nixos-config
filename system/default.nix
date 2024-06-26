@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
+{ config, pkgs, user, hostname, ... }:
 
 {
   imports = [
@@ -19,7 +19,7 @@
   # Enable the rt kernel
   boot.kernelPackages = pkgs.linuxPackages_zen; 
 
-  networking.hostName = "anon";
+  networking.hostName = hostname;
 
   # Enable networking
   networking.networkmanager.enable = true; 
@@ -67,9 +67,9 @@
     { domain = "@audio"; item = "nofile" ; type = "hard"; value = "99999"    ; }
   ];
 
-  users.users.anon = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "anon";
+    description = user;
     extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
     packages = with pkgs; [
       firefox

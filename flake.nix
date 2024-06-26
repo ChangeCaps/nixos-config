@@ -38,35 +38,40 @@
       };
     };
   in {
-    homeConfigurations = {
-      anon = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+    setup = { home, system, user, hostname }: {
+      homeConfigurations = {
+        anon = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
 
-        modules = [ 
-          # Include the default Home Manager modules.
-          inputs.nix-colors.homeManagerModules.default
+          modules = [ 
+            # Include the default Home Manager modules.
+            inputs.nix-colors.homeManagerModules.default
 
-          ./home
-          ./home.nix 
-        ];
+            ./home
+            home
+          ];
 
-        extraSpecialArgs = {
-          inherit inputs;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit user;
+          };
         };
       };
-    };
 
-    nixosConfigurations = {
-      anon = nixpkgs.lib.nixosSystem {
-        modules = [ 
-          ./system
-          ./configuration.nix 
-        ];
+      nixosConfigurations = {
+        anon = nixpkgs.lib.nixosSystem {
+          modules = [ 
+            ./system
+            system
+          ];
 
-        specialArgs = { 
-          inherit inputs; 
+          specialArgs = { 
+            inherit inputs; 
+            inherit user;
+            inherit hostname;
+          };
         };
       };
-    };
+    };  
   };
 }
