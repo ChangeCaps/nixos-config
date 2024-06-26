@@ -18,6 +18,8 @@ in {
     name = "anon";
   };
 
+  flake = "~/nixos-config";
+
   packages = with pkgs; [
     python3
     rustup
@@ -26,9 +28,6 @@ in {
     reaper
     ripgrep
     gdb
-    (fix-electron (logseq.override {
-      electron = electron_27;
-    }))
     (fix-electron vesktop)
     musescore
     godot_4
@@ -76,20 +75,21 @@ in {
 
   monitors = [
     {
-      name = "eDP-1";
+      name = "DP-1";
       position = "0x0";
+      workspace = 1;
     }
     {
       name = "HDMI-A-2";
       position = "1920x0";
-      workspace = 1;
-      scale = 1.5;
+      workspace = 2;
+    }
+    {
+      name = "DVI-D-1";
+      position = "3840x0";
+      workspace = 3;
     }
   ];
-
-  nh = {
-    flake = "~/dotfiles";
-  };
 
   git = {
     userName = "Hjalte Nannestad";

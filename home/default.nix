@@ -12,6 +12,7 @@ in {
     ./git
     ./hyprland
     ./hyprlock
+    ./logseq
     ./monitors
     ./neovim
     ./nh
@@ -27,6 +28,13 @@ in {
       type = lib.types.listOf lib.types.package;
       default = [];
       description = "Packages to be installed for the user.";
+    };
+
+    flake = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      example = "~/nixos-config";
+      description = "Path to the NixOS configuration.";
     };
   };
 

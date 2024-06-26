@@ -20,10 +20,10 @@
 
         env.TERM = "xterm-256color";
 
-        font.size = 9.0;
-        font.normal.family = "Noto Sans Mono";
-        font.bold.family = "Noto Sans Mono";
-        font.italic.family = "Noto Sans Mono";
+        font.size = 10.0;
+        font.normal.family = "FiraCode Nerd Font";
+        font.bold.family = "FiraCode Nerd Font";
+        font.italic.family = "FiraCode Nerd Font";
 
         keyboard.bindings = [
           {
