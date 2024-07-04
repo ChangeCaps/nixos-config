@@ -79,6 +79,7 @@ in {
       pkgs.godot_4
       pkgs.blender
       pkgs.rustup
+      pkgs.clang
       pkgs.neovide
 
       /* c development */

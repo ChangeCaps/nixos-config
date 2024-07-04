@@ -43,6 +43,9 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   }; 
 
+  # Enable sysrq
+  boot.kernel.sysctl."kernel.sysrq" = 502;
+
   # Configure console keymap
   console.keyMap = "dk-latin1";
 

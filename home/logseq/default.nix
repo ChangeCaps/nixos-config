@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ...}:
+{ config, pkgs, ...}:
 
 let
   fix-electron = (package:
@@ -11,7 +11,7 @@ let
       '';
     })); 
 
-  flake = builtins.replaceStrings ["~"] [config.home.homeDirectory] config.flake;
+  flake = builtins.replaceStrings ["~"] [config.home.homeDirectory] "${config.flake}/nixos-config";
   link = config.lib.file.mkOutOfStoreSymlink;
 in {
   home.packages = [
