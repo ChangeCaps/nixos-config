@@ -10,7 +10,7 @@
     };
 
     theme = {
-      name = "catppuccin-mocha-teal-standard";
+      name = "catppuccin-mocha-teal-standard+default";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "teal" ];
         size = "standard";
