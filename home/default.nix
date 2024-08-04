@@ -18,6 +18,7 @@ in {
     ./dunst
     ./fish
     ./git
+    ./hjaltes-widgets
     ./hyprland
     ./hyprlock
     ./logseq
