@@ -19,6 +19,11 @@
       url = "github:ChangeCaps/neovim-config";
       flake = false;
     };
+
+    hjaltes-widgets = {
+      urls = "github:ChangeCaps/hjaltes-widgets";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs: 
@@ -46,6 +51,7 @@
           modules = [ 
             # Include the default Home Manager modules.
             inputs.nix-colors.homeManagerModules.default
+            inputs.hjaltes-widgets.homeManagerModules.default
 
             ./home
             home
