@@ -21,7 +21,7 @@
     };
 
     hjaltes-widgets = {
-      urls = "github:ChangeCaps/hjaltes-widgets";
+      url = "github:ChangeCaps/hjaltes-widgets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
