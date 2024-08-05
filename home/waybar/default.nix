@@ -73,8 +73,8 @@ in {
 	
 	      pulseaudio = {
           scroll-step =  5;
-          format = "{icon}   {volume}%";
-          format-muted = "   {volume}%";
+          format = "{icon} ";
+          format-muted = " ";
 
           on-click = "${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           on-click-right = execFloating "${pkgs.pavucontrol}/bin/pavucontrol";
