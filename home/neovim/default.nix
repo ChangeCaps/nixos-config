@@ -2,10 +2,7 @@
 
 {
   xdg.configFile = { 
-    "nvim" = {
-      recursive = true;
-      source = inputs.neovim-config;
-    };
+    "nvim".source = inputs.neovim-config;
   };
 
   programs.neovim = {
