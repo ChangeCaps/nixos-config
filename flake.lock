@@ -61,11 +61,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1722979657,
-        "narHash": "sha256-80X/DagouTijMcs56zSEXjeNdYH+Hd3h5YWIA1eG4hY=",
+        "lastModified": 1722979903,
+        "narHash": "sha256-PW7kCRXgGtB/rHOoYh65IDrBG8roRNQu/L0zk8W8NRk=",
         "owner": "ChangeCaps",
         "repo": "hjaltes-widgets",
-        "rev": "dda301ae7b3e0de22cbb186a23ce3ff80483314d",
+        "rev": "e7b2c55688a26a2db72d86ef53a53e3e5d407ec2",
         "type": "github"
       },
       "original": {
