@@ -61,11 +61,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1722969905,
-        "narHash": "sha256-y1xzL7CSjGed10jPOSAYdO/zvTBWiG6cc6doGq8quas=",
+        "lastModified": 1722979657,
+        "narHash": "sha256-80X/DagouTijMcs56zSEXjeNdYH+Hd3h5YWIA1eG4hY=",
         "owner": "ChangeCaps",
         "repo": "hjaltes-widgets",
-        "rev": "0a4377c4d29aa20c34d1c20265d5a92641c9d03c",
+        "rev": "dda301ae7b3e0de22cbb186a23ce3ff80483314d",
         "type": "github"
       },
       "original": {
@@ -140,11 +140,11 @@
     "neovim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1722964745,
-        "narHash": "sha256-SFzyhTbJUYOEvm8r2kFBIyhCFoq+HLquqdXCIYuWnz0=",
+        "lastModified": 1722979548,
+        "narHash": "sha256-DTdV1842ngdMia5d7nKjrodJUAZiOUxVX2d+ZtXjjfg=",
         "owner": "ChangeCaps",
         "repo": "neovim-config",
-        "rev": "444e1b1574ae99310634a2920214aaf63caf27a8",
+        "rev": "09b97cf9130f9749f423fabb2232ff2b71487998",
         "type": "github"
       },
       "original": {

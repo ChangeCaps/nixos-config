@@ -172,8 +172,8 @@ in {
         };
 
         "custom/power" = {
-          format = " ";
-          on-click = "${widgets} power-menu";
+          format = " ";
+          on-click = "${widgets} config-menu";
         };
 
         "custom/wallpaper" = {
