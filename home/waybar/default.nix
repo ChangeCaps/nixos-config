@@ -1,7 +1,8 @@
-{ inputs, config, pkgs, ... }: 
+{ config, pkgs, ... }: 
 let 
   hyprland = config.wayland.windowManager.hyprland.package;
   execFloating = cmd: "${hyprland}/bin/hyprctl dispatch exec [floating] ${cmd}";
+  widgets = "${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets";
 
   colors = with config.colorScheme.colors; ''
     @define-color base00 alpha(#${base00}, 0.9);
@@ -172,7 +173,7 @@ in {
 
         "custom/power" = {
           format = " ";
-          on-click = "${pkgs.wlogout}/bin/wlogout";
+          on-click = "${widgets} power-menu";
         };
 
         "custom/wallpaper" = {

@@ -29,7 +29,6 @@ in {
     ./reaper
     ./theme
     ./waybar
-    ./wlogout
     ./wofi 
   ];
 

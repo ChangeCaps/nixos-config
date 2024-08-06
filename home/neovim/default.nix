@@ -1,7 +1,7 @@
-{ inputs, config, pkgs, ... }: 
+{ inputs, pkgs, ... }: 
 
 {
-  xdg.configFile = {
+  xdg.configFile = { 
     "nvim" = {
       recursive = true;
       source = inputs.neovim-config;

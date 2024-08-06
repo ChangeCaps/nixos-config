@@ -1,5 +1,10 @@
+* {
+    font-family: "Fira";
+    color: @base05;
+}
+
 #volume-popup {
-    background-color: @base00;
+    background-color: alpha(@base00, 0.9);
 
     border-radius: 6px;
     border: 1px solid @base02;
@@ -10,4 +15,32 @@
 #volume-icon {
     font-size: 16px;
     color: @base0B;
+}
+
+#volume-slider {}
+
+#power-menu {
+    background-color: @base00;
+
+    border-radius: 6px;
+    border: 1px solid @base02;
+}
+
+#power-menu > box {
+    padding: 16px;
+    min-width: 120px;
+}
+
+#power-menu-button {
+    background-color: transparent;
+}
+
+#power-menu-button:hover {
+    background-color: @base02;
+
+    transition: background-color 0.2s;
+}
+
+#power-menu-button:focus {
+    outline: none;
 }
