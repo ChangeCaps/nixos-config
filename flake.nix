@@ -20,6 +20,11 @@
       flake = false;
     };
 
+    lute = {
+      url = "github:ChangeCaps/lute";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     hjaltes-widgets = {
       url = "github:ChangeCaps/hjaltes-widgets";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -22,6 +22,7 @@ in {
     ./hyprland
     ./hyprlock
     ./logseq
+    ./lute
     ./monitors
     ./neovim
     ./nh
