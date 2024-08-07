@@ -49,7 +49,7 @@ in {
         ${resizeSubmap}
       '';
 
-      settings = with config.colorScheme.colors; {
+      settings = with config.colorScheme.palette; {
         exec-once ="${startupScript}/bin/start";
 
         monitor = map

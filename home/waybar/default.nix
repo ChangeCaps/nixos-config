@@ -4,7 +4,7 @@ let
   execFloating = cmd: "${hyprland}/bin/hyprctl dispatch exec [floating] ${cmd}";
   widgets = "${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets";
 
-  colors = with config.colorScheme.colors; ''
+  colors = with config.colorScheme.palette; ''
     @define-color base00 alpha(#${base00}, 0.9);
     @define-color base01 alpha(#${base01}, 0.9);
     @define-color base02 alpha(#${base02}, 0.9);

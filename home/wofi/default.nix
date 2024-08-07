@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }: 
 let
-  colors = with config.colorScheme.colors; ''
+  colors = with config.colorScheme.palette; ''
     @define-color base00 #${base00};
     @define-color base01 #${base01};
     @define-color base02 #${base02};

@@ -38,7 +38,7 @@
           }
         ];
 
-        colors = with config.colorScheme.colors; {
+        colors = with config.colorScheme.palette; {
           draw_bold_text_with_bright_colors = false;
 
           primary = {
@@ -67,7 +67,8 @@
             blue = "0x${base0D}";
             magenta = "0x${base0E}";
             cyan = "0x${base0C}";
-            white = "0x${base05}";          }; 
+            white = "0x${base05}";          
+          }; 
         };
       };
     };

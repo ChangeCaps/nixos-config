@@ -4,7 +4,7 @@
   config = {
     services.dunst = {
       enable = true;
-      settings = with config.colorScheme.colors; {
+      settings = with config.colorScheme.palette; {
         global = {
           frame_color = "#${base05}";
           separator_color = "frame";
