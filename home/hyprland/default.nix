@@ -161,9 +161,7 @@ in {
           preserve_split = true;
         }; 
 
-        master = {
-          new_is_master = true;
-        };
+        master = {};
 
         misc = {
           force_default_wallpaper = 0;
