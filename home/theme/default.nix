@@ -28,6 +28,6 @@
     enable = true;
 
     style.name = "adwaita-dark";
-    platformTheme = "adwaita";
+    platformTheme.name = "adwaita";
   };
 }
