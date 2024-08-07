@@ -140,11 +140,11 @@
     "neovim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1722990488,
-        "narHash": "sha256-orZ3ZUe0CPjZmOFltTcHmSYnk2k7Bg4yaQhX/vv63uM=",
+        "lastModified": 1723024698,
+        "narHash": "sha256-fwHogv+Fk+HWuaOeSDYx4ql8ioMls2kvAUAB94Hi6hY=",
         "owner": "ChangeCaps",
         "repo": "neovim-config",
-        "rev": "f94f8481aa498e8aa761a9b87e413efc66e9566c",
+        "rev": "e6ba7dea20b095c6ff8b05da48b6368be52e72de",
         "type": "github"
       },
       "original": {
