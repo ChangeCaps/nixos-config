@@ -124,11 +124,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722989902,
-        "narHash": "sha256-BgEnMgLRdhMbt5SwZR8rBVi/5yfhIrz4Nm0NQB2F4IU=",
+        "lastModified": 1723017296,
+        "narHash": "sha256-E3saCUPIKbgl63SuC34jYlKrT9uFt68fW657nySxZmI=",
         "owner": "ChangeCaps",
         "repo": "lute",
-        "rev": "5162bf929d520f87a393e29211e2c2f7ef71494c",
+        "rev": "d5347428397c88d3e40d66ca36d954f66e38de99",
         "type": "github"
       },
       "original": {
