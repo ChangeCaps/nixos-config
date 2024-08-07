@@ -124,11 +124,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722903135,
-        "narHash": "sha256-BIyoTBvlxQBCTfq36MBWOp6KHLC/UwTUW+rEEHvRF1o=",
+        "lastModified": 1722988828,
+        "narHash": "sha256-Dz1cCRqelJyfXKcLzRkX2F17ThLxFnp/Ni2gxmIx0I4=",
         "owner": "ChangeCaps",
         "repo": "lute",
-        "rev": "825359acc58229e4a711ba949c57965dd067ae97",
+        "rev": "2c362ebfceab90c3cb8e5c65f439edc63345420b",
         "type": "github"
       },
       "original": {
@@ -140,11 +140,11 @@
     "neovim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1722981945,
-        "narHash": "sha256-NtqCYBECXS+Xd4YCC3NHlKzO36r20xsLDttd8C7FBH4=",
+        "lastModified": 1722985744,
+        "narHash": "sha256-bbmD3KEgoiYm3LeKauELYWHU3A6W4pJ0S+k9QuuitKE=",
         "owner": "ChangeCaps",
         "repo": "neovim-config",
-        "rev": "8ac62a9223cf5cede4775e553a2b4be4eef64549",
+        "rev": "eba6c393eb8b7f72a60463b3c8b672f8340d599e",
         "type": "github"
       },
       "original": {
