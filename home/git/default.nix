@@ -30,7 +30,6 @@
       extraConfig = {
         credential.helper = "libsecret";
         init.defaultBranch = "main";
-        pull.rebase = true;
       };
     }; 
   };
