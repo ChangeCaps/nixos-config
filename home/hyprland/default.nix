@@ -73,10 +73,10 @@ in {
         ];
 
         input = {
-          kb_layout = "dk";
-          kb_variant = "nodeadkeys";
+          kb_layout = "us,dk";
+          kb_variant = ",qwerty";
           kb_model = "";
-          kb_options = "";
+          kb_options = "grp:win_space_toggle";
           kb_rules = "";
 
           follow_mouse = 1;

@@ -47,7 +47,7 @@
   boot.kernel.sysctl."kernel.sysrq" = 502;
 
   # Configure console keymap
-  console.keyMap = "dk-latin1";
+  console.keyMap = "us";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
