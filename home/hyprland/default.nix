@@ -11,6 +11,8 @@ let
     ${pkgs.swww}/bin/swww img ${config.wallpaper} &
   ''; 
 
+  hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
+
   resizeSubmap = ''
     submap = resize
 
@@ -125,6 +127,10 @@ in {
           ];
         };
 
+        render = {
+          explicit_sync = false;
+        };
+
         general = {
           gaps_in = 4;
           gaps_out = 8;
@@ -189,7 +195,7 @@ in {
           
           "$mod, Q, killactive,"
           "$mod, W, togglefloating,"
-          "$mod, D, toggleopaque,"
+          "$mod, D, exec, ${hyprctl} setprop active opaque toggle"
           "$mod, F, fullscreen,"
           "$mod, P, pseudo,"
           "$mod, E, togglesplit,"
