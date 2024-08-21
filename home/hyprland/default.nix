@@ -74,9 +74,9 @@ in {
 
         input = {
           kb_layout = "us,dk";
-          kb_variant = ",qwerty";
+          kb_variant = "qwerty";
           kb_model = "";
-          kb_options = "grp:win_space_toggle";
+          kb_options = "caps:escape";
           kb_rules = "";
 
           follow_mouse = 1;
