@@ -39,6 +39,11 @@ in {
       default = ../../wallpaper/default.jpg;
       description = "The wallpaper to use";
     };
+
+    keyboard = lib.mkOption {
+      type = lib.types.str;
+      description = "The primary keyboard";
+    };
   };
 
   config = {
@@ -200,6 +205,9 @@ in {
           "$mod, P, pseudo,"
           "$mod, E, togglesplit,"
           "$mod, A, submap, resize"
+
+          # switch keyboard layout
+          "$mod, M, exec, ${hyprctl} switchxkblayout ${config.keyboard} next"
 
           # Group shortcuts
           "$mod, G, togglegroup,"
