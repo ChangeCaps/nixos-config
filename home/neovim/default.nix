@@ -12,6 +12,10 @@
     vimAlias = true;
   };
 
+  home.shellAliases = {
+    lg = "lazygit";
+  };
+
   home.packages = [
     pkgs.fd
     pkgs.lazygit
