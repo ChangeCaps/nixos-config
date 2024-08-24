@@ -24,6 +24,7 @@ in {
     ./logseq
     ./lute
     ./monitors
+    ./neovide
     ./neovim
     ./nh
     ./reaper
@@ -80,8 +81,7 @@ in {
       pkgs.godot_4
       pkgs.blender
       pkgs.rustup
-      pkgs.clang
-      pkgs.neovide
+      pkgs.clang 
 
       /* c development */
       pkgs.gnumake
