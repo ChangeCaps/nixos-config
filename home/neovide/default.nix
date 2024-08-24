@@ -6,7 +6,7 @@
   };
 
   home.shellAliases = {
-    nv = "${pkgs.neovide}/bin/neovide";
+    nv = "neovide & disown";
   };
 
   home.packages = [
