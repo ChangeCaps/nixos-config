@@ -70,7 +70,7 @@ in {
           )
           config.monitors;
 
-        "$terminal" = "${pkgs.alacritty}/bin/alacritty";
+        "$terminal" = "${pkgs.kitty}/bin/kitty";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
         "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --clipboard-only";
 
@@ -259,7 +259,7 @@ in {
                 ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
               in [
                 "$mod, ${ws}, focusworkspaceoncurrentmonitor, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)},activewindow"
               ]
             )
             10)

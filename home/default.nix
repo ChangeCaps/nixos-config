@@ -21,6 +21,7 @@ in {
     ./hjaltes-widgets
     ./hyprland
     ./hyprlock
+    ./kitty
     ./logseq
     ./lute
     ./monitors
@@ -65,6 +66,10 @@ in {
     # We really want to be sure the user name is set.
     home.username = assert username != null; username;
     home.homeDirectory = "/home/${config.home.username}";
+
+    home.shellAliases = {
+      rdb = "rust-gdb";
+    };
 
     home.packages = [
       pkgs.flatpak
