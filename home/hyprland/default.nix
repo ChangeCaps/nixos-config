@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   startupScript = pkgs.writeShellScriptBin "start" ''
@@ -130,10 +130,6 @@ in {
             "fade, 1, 7, default"
             "workspaces, 1, 6, default"
           ];
-        };
-
-        render = {
-          explicit_sync = false;
         };
 
         general = {
