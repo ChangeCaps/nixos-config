@@ -6,7 +6,7 @@
   };
 
   home.shellAliases = {
-    nv = "neovide & disown";
+    nv = "neovide &;";
   };
 
   home.packages = [
