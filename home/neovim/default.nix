@@ -21,7 +21,9 @@
     pkgs.lazygit
     pkgs.lua-language-server
     pkgs.nodejs 
+    pkgs.pyright
     pkgs.nixd
+    pkgs.gdb
     pkgs.wl-clipboard
   ];
 

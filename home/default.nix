@@ -80,7 +80,6 @@ in {
       pkgs.renderdoc
       (fix-electron pkgs.spotify)
       pkgs.ripgrep
-      pkgs.gdb
       (fix-electron pkgs.vesktop)
       pkgs.musescore
       pkgs.godot_4

@@ -25,6 +25,7 @@ tooltip {
 #backlight,
 #pulseaudio,
 #network,
+#bluetooth,
 #clock,
 #battery,
 #custom-media,
@@ -45,6 +46,18 @@ tooltip {
 
 #pulseaudio {
   color: @base0B;
+}
+
+#bluetooth.disabled {
+  color: @base01;
+}
+
+#bluetooth.off {
+  color: @base08;
+}
+
+#bluetooth.on, #bluetooth.connected {
+  color: @base0D;
 }
 
 #network {

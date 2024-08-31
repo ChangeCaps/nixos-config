@@ -53,6 +53,7 @@ in {
           "backlight" 
           "pulseaudio" 
           "custom/separator"
+          "bluetooth"
           "network"
           "battery" 
           "custom/separator"
@@ -82,6 +83,11 @@ in {
           format-icons = {
             default = [ "" "" "" ];
           };
+        };
+
+        bluetooth = {
+          format = " ";
+          on-click = execFloating "${pkgs.blueman}/bin/blueman-manager"; 
         };
 
         network = {
