@@ -5,7 +5,7 @@
     enable = true;
     theme = "Catppuccin-Mocha";
     font = {
-      name = "FireCode Nerd Font";
+      name = "FiraCode Nerd Font";
       size = 10.0;
     };
     shellIntegration = {
