@@ -25,6 +25,7 @@
     pkgs.nixd
     pkgs.gdb
     pkgs.wl-clipboard
+    pkgs.jdt-language-server
   ];
 
   home.sessionVariables = {
