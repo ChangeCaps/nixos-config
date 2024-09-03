@@ -11,5 +11,8 @@
     shellIntegration = {
       enableFishIntegration = true; 
     };
+    extraConfig = ''
+      enable_audio_bell no
+    '';
   };
 }

@@ -13,7 +13,6 @@ let
 in {
   imports = [
     # Include all the modules.
-    ./alacritty
     ./direnv
     ./dunst
     ./fish
