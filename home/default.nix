@@ -68,6 +68,7 @@ in {
 
     home.shellAliases = {
       rdb = "rust-gdb";
+      nuke = "rm -rf";
     };
 
     home.packages = [
