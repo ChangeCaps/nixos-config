@@ -73,11 +73,11 @@
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" "adbusers" ];
     packages = with pkgs; [
       firefox
       neofetch
-      gnome.nautilus
+      nautilus
       ark
     ];
   };
@@ -89,6 +89,9 @@
   programs.steam = {
     enable = true;
   };
+
+  # Enable android
+  programs.adb.enable = true;
 
   # Enable fish
   programs.fish.enable = true;
@@ -109,8 +112,14 @@
   # Add fonts
   fonts.packages = with pkgs; [
     noto-fonts
-    nerdfonts
+    fira-code
     material-symbols
+
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+      ];
+    })
   ];
 
   # Enable experimental features

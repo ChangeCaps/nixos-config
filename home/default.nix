@@ -86,6 +86,7 @@ in {
       pkgs.blender
       pkgs.rustup
       pkgs.clang 
+      pkgs.bat
 
       /* c development */
       pkgs.gnumake
