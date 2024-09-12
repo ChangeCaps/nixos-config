@@ -82,6 +82,10 @@
     ];
   };
 
+  services.udev.packages = [
+    pkgs.android-udev-rules
+  ];
+
   # Enable light
   programs.light.enable = true;
 
@@ -89,9 +93,6 @@
   programs.steam = {
     enable = true;
   };
-
-  # Enable android
-  programs.adb.enable = true;
 
   # Enable fish
   programs.fish.enable = true;
