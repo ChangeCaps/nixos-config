@@ -73,7 +73,14 @@
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" "adbusers" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+      "adbusers"
+      "docker"
+    ];
     packages = with pkgs; [
       firefox
       neofetch
