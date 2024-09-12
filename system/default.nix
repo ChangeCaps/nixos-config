@@ -61,6 +61,9 @@
   # Enable thumbnails for file managers.
   services.tumbler.enable = true;  
 
+  # Enable docker
+  virtualisation.docker.enable = true;
+
   powerManagement.cpuFreqGovernor = "performance";
 
   security.pam.loginLimits = [
