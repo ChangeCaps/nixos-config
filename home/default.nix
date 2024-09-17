@@ -86,6 +86,8 @@ in {
       pkgs.blender
       pkgs.rustup
       pkgs.clang 
+      pkgs.gleam
+      pkgs.erlang
       pkgs.bat
 
       /* c development */
