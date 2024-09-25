@@ -6,7 +6,7 @@
     theme = "Catppuccin-Mocha";
     font = {
       name = "FiraCode Nerd Font";
-      size = 10.0;
+      size = 12.0;
     };
     shellIntegration = {
       enableFishIntegration = true; 
