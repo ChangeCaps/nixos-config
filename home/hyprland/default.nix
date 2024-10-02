@@ -36,7 +36,7 @@ in {
   options = {
     wallpaper = lib.mkOption {
       type = with lib.types; path;
-      default = ../../wallpaper/default.jpg;
+      default = ../../wallpaper/forest.webp;
       description = "The wallpaper to use";
     };
 
@@ -101,7 +101,7 @@ in {
         decoration = {
           rounding = 6;
 
-          active_opacity = 0.9;
+          active_opacity = 0.875;
           inactive_opacity = 0.8;
           fullscreen_opacity = 1.0;
 

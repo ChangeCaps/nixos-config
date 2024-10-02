@@ -89,6 +89,7 @@ in {
       pkgs.gleam
       pkgs.erlang
       pkgs.bat
+      pkgs.swww
 
       /* c development */
       pkgs.gnumake
