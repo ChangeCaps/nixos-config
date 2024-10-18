@@ -174,7 +174,9 @@ in {
           force_default_wallpaper = 0;
         };
 
-        windowrulev2 = [];
+        windowrulev2 = [
+          "stayfocused,class:REAPER,title:(.*)connector$"
+        ];
 
         workspace = (builtins.genList 
           (x: let
