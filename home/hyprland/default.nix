@@ -188,8 +188,7 @@ in {
           10
         );
 
-        "$meta" = "SUPER";
-        "$mod" = "ALT"; 
+        "$mod" = "SUPER"; 
 
         bind = [
           # program shortcuts

@@ -50,7 +50,7 @@
   in {
     setup = { home, system, username, hostname }: {
       homeConfigurations = {
-        anon = home-manager.lib.homeManagerConfiguration {
+        "${hostname}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
           modules = [ 
@@ -70,7 +70,7 @@
       };
 
       nixosConfigurations = {
-        anon = nixpkgs.lib.nixosSystem {
+        "${hostname}" = nixpkgs.lib.nixosSystem {
           modules = [ 
             ./system
             system

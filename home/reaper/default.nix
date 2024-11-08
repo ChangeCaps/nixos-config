@@ -39,6 +39,8 @@ in {
       pkgs.talentedhack
       pkgs.sfizz
       pkgs.helvum
+      pkgs.x42-plugins
+      pkgs.decent-sampler
     ];
   };
 }
