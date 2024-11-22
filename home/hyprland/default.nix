@@ -105,11 +105,13 @@ in {
           inactive_opacity = 0.8;
           fullscreen_opacity = 1.0;
 
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-
-          "col.shadow" = "rgba(${base00}aa)";
+          shadow = {
+            enabled = true;
+            range = 300;
+            render_power = 4;
+            offset = "0 40";
+            scale = 0.9;
+          };
 
           blur = {
             size = 12;
