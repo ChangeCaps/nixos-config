@@ -82,6 +82,7 @@ in {
       pkgs.ripgrep
       (fix-electron pkgs.vesktop)
       pkgs.musescore
+      pkgs.muse-sounds-manager
       pkgs.godot_4
       pkgs.blender
       pkgs.rustup
