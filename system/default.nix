@@ -125,12 +125,7 @@
     noto-fonts
     fira-code
     material-symbols
-
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-      ];
-    })
+    nerd-fonts.fira-code
   ];
 
   # Enable experimental features

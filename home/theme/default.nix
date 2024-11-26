@@ -4,18 +4,8 @@
   gtk = {
     enable = true;
 
-    iconTheme = {
-      name = "Yaru-magenta-dark";
-      package = pkgs.yaru-theme;
-    };
-
     theme = {
-      name = "catppuccin-mocha-teal-standard";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "teal" ];
-        size = "standard";
-        variant = "mocha";
-      };
+      name = "Adwaita Dark";
     };
 
     cursorTheme = {
