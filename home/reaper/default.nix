@@ -41,6 +41,8 @@ in {
       pkgs.helvum
       pkgs.x42-plugins
       pkgs.decent-sampler
+      pkgs.linuxsampler
+      pkgs.surge
     ];
   };
 }
