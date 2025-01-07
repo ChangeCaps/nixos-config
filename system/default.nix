@@ -1,4 +1,4 @@
-{ pkgs, username, hostname, ... }:
+{ pkgs, username, hostname, lib, ... }:
 
 {
   imports = [
@@ -16,8 +16,7 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Enable the rt kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen; 
+  boot.kernelPackages = pkgs.linuxPackages_latest_rt;
 
   networking.hostName = assert hostname != null; hostname;
 
@@ -65,13 +64,6 @@
   virtualisation.docker.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
-
-  security.pam.loginLimits = [
-    { domain = "@audio"; item = "memlock"; type = "-"   ; value = "unlimited"; }
-    { domain = "@audio"; item = "rtprio" ; type = "-"   ; value = "99"       ; }
-    { domain = "@audio"; item = "nofile" ; type = "soft"; value = "99999"    ; }
-    { domain = "@audio"; item = "nofile" ; type = "hard"; value = "99999"    ; }
-  ];
 
   users.users.${username} = {
     isNormalUser = true;

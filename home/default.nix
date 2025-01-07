@@ -27,6 +27,7 @@ in {
     ./neovide
     ./neovim
     ./nh
+    ./nushell
     ./reaper
     ./theme
     ./waybar
@@ -91,6 +92,8 @@ in {
       pkgs.erlang
       pkgs.bat
       pkgs.swww
+
+      (pkgs.callPackage ./rtcqs.nix {})
 
       /* c development */
       pkgs.gnumake

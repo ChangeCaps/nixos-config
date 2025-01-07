@@ -43,6 +43,7 @@ in {
       pkgs.calf
       pkgs.carla
       pkgs.eq10q
+      pkgs.gxplugins-lv2
       (pkgs.stdenv.mkDerivation rec {
         pname = "decent-sampler";
         version = "1.12.5";

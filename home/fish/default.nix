@@ -15,7 +15,7 @@
     };
   };
 
-  config = {
+  config = lib.mkIf config.fish.enable {
     programs.fish = {
       enable = true;
       shellInit = 
