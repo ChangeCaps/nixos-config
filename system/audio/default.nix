@@ -44,10 +44,11 @@ in {
         pipewire."92-low-latency" = {
           "context.properties" = {
             "default.clock.rate"        = 48000;
-            "default.clock.quantum"     = 64;
-            "default.clock.min-quantum" = 64;
-            "default.clock.max-quantum" = 64;
-            "link.max-buffers"          = 16;
+            "default.clock.quantum"     = 32;
+            "default.clock.min-quantum" = 32;
+            "default.clock.max-quantum" = 32;
+            "link.max-buffers"          = 4;
+            "link.max-frames"           = 16;
           };
 
           "context.modules" = [
