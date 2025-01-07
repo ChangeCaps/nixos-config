@@ -2,12 +2,12 @@
 
 let
   startupScript = pkgs.writeShellScriptBin "start" ''
-    ${config.programs.waybar.package}/bin/waybar &
-    ${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets volume-popup &
     ${pkgs.swww}/bin/swww-daemon &
 
     sleep 1
 
+    ${config.programs.waybar.package}/bin/waybar &
+    ${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets volume-popup &
     ${pkgs.swww}/bin/swww img ${config.wallpaper} &
   ''; 
 
