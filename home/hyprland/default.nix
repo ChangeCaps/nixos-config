@@ -3,11 +3,11 @@
 let
   startupScript = pkgs.writeShellScriptBin "start" ''
     ${pkgs.swww}/bin/swww-daemon &
+    while true; do ${config.programs.waybar.package}/bin/waybar; done &
+    ${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets volume-popup &
 
     sleep 1
 
-    ${config.programs.waybar.package}/bin/waybar &
-    ${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets volume-popup &
     ${pkgs.swww}/bin/swww img ${config.wallpaper} &
   ''; 
 
