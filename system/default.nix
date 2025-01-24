@@ -16,8 +16,6 @@
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest_rt;
-
   networking.hostName = assert hostname != null; hostname;
 
   # Enable networking
@@ -98,7 +96,7 @@
 
   # Enable fish
   programs.fish.enable = true;
-  users.defaultUserShell = pkgs.fish; 
+  users.defaultUserShell = pkgs.nushell; 
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;

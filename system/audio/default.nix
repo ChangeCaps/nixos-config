@@ -1,19 +1,37 @@
 { config, pkgs, lib, ... }:
 
 let
-  cfg = config.audio;
+  cfg = config.rt-audio;
   sample-rate = 48000;
   quantum = 64;
 in {
-  options.audio = {
+  options.rt-audio = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable real-time audio configuration";
+    };
   };
 
-  config = {
+  config = lib.mergeAttrs {
+    # Enable sound with pipewire.
+    services.pulseaudio.enable = false;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      jack.enable = true;
+    };
+  } (lib.mkIf cfg.enable {
     # Set vm.swappiness to 10
     boot.kernel.sysctl."vm.swappiness" = 10;
 
     # Enable realtime scheduling
     boot.kernelParams = [ "threadirqs" ];
+
+    boot.kernelPackages = pkgs.linuxPackages_latest_rt;
 
     security.pam.loginLimits = [
       { domain = "@audio"; item = "memlock"; type = "-"   ; value = "unlimited"; }
@@ -32,16 +50,7 @@ in {
 
     security.rtkit.enable = true;
 
-    # Enable sound with pipewire.
-    services.pulseaudio.enable = false;
     services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
-      jack.enable = true;
-
       extraConfig = {
         pipewire."92-low-latency" = {
           "context.properties" = {
@@ -88,21 +97,22 @@ in {
     }; 
 
     services.pipewire.wireplumber.extraConfig."99-alsa-lowlatency" = {
-      "monitor.alsa.rules" = {
-        matches = [
-          {
-            "node.name" = "~alsa_output.*";
-          }
-        ];
-        actions = {
-          update-props = {
-            "audio.format" = "S32LE";
-            "audio.rate" = sample-rate * 2;
-            "api.alsa.period-size" = 2;
-            "api.alsa.disable-batch" = false;
+      "monitor.alsa.rules" = [
+        {
+          matches = [
+            {
+              "node.name" = "~alsa_output.*";
+            }
+          ];
+          actions = {
+            update-props = {
+              "audio.rate"             = sample-rate;
+              "api.alsa.period-size"   = quantum / 2;
+              "api.alsa.disable-batch" = false;
+            };
           };
-        };
-      };
+        }
+      ];
     };
-  };
+  });
 }

@@ -57,6 +57,8 @@ in {
           "network"
           "battery" 
           "custom/separator"
+          "custom/xruns"
+          "custom/separator"
           "clock" 
           "custom/separator"
           "custom/power"
@@ -154,6 +156,12 @@ in {
 
         "custom/separator" = {
           format = "|";
+        };
+
+        "custom/xruns" = {
+          format = "{} xruns";
+          interval = 5;
+          exec = "${pkgs.nushell}/bin/nu ${./count_xruns.nu}";
         };
 
         "custom/media" = {

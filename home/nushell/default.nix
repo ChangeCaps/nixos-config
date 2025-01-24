@@ -1,6 +1,8 @@
 { lib, pkgs, config, ... }:
 
-{
+let
+  flake = builtins.replaceStrings ["~"] [config.home.homeDirectory] "${config.flake}";
+in {
   options.nushell = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -25,7 +27,7 @@
         def la  [...args] { ls -a  ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
         def ll  [...args] { ls -l  ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
         def l   [...args] { ls     ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
-        def lg  [...args] { lazygit $args }
+        def lg  [...args] { lazygit ...$args }
 
         # Completions
         # mainly pieced together from https://www.nushell.sh/cookbook/external_completers.html
@@ -82,7 +84,7 @@
         $env.config = {
           show_banner: false,
           completions: {
-            case_sensitive: false # case-sensitive completions
+            case_sensitive: true  # case-sensitive completions
             quick: true           # set to false to prevent auto-selecting completions
             partial: true         # set to false to prevent partial filling of the prompt
             algorithm: "prefix"   # prefix or fuzzy
@@ -101,7 +103,10 @@
           prepend /home/myuser/.apps |
           append /usr/bin/env
         )
-      '' + builtins.readFile ./theme.nu;
+      '' + builtins.readFile ./theme.nu
+         + (if config.nh.enable then ''
+            $env.FLAKE = "${flake}"
+         '' else "");
     };
 
     programs.carapace = {
