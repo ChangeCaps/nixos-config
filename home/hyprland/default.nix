@@ -86,7 +86,8 @@ in {
           kb_options = "caps:escape";
           kb_rules = "";
 
-          follow_mouse = 1;
+          follow_mouse = 0;
+          float_switch_override_focus = 0;
 
           touchpad = {
             natural_scroll = false;

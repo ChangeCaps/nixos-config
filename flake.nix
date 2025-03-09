@@ -6,10 +6,6 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
-    nixpkgs-old = {
-      url = "github:nixos/nixpkgs/247d47909ab1e7790a613a66712a654d0cc55aaf";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,10 +36,9 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-old, home-manager, ... }@inputs: 
+  outputs = { nixpkgs, home-manager, ... }@inputs: 
   let
     system = "x86_64-linux";
-    system-name = "x86_64-linux";
 
     pkgs = import nixpkgs { 
       inherit system;
@@ -70,12 +65,6 @@
 
             ./home
             home
-
-            ({ ... }: {
-              nixpkgs.overlays = [ (final: prev: {
-                carla = nixpkgs-old.legacyPackages.${system-name}.carla;
-              }) ];
-            })
           ];
 
           extraSpecialArgs = {
