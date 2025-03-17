@@ -1,4 +1,4 @@
-{ pkgs, username, hostname, ... }:
+{ pkgs, username, hostname, config, ... }:
 
 {
   imports = [
@@ -80,6 +80,7 @@
       neofetch
       nautilus
       kdePackages.ark
+      config.boot.kernelPackages.perf
     ];
   };
 
