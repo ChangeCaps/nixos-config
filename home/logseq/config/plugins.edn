@@ -1,4 +1,0 @@
-{:logseq-vim-shortcuts {:version "v0.1.22", :repo "vipzhicheng/logseq-plugin-vim-shortcuts", :effect true, :theme false}
- :logseq-git {:version "v1.7.0", :repo "haydenull/logseq-plugin-git", :effect true, :theme false}
- :logseq-catppuccin {:version "v0.6.3", :repo "catppuccin/logseq", :effect false, :theme true}
- :logseq-journals-calendar {:version "v0.10.10", :repo "xyhp915/logseq-journals-calendar", :effect false, :theme false}}

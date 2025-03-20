@@ -21,7 +21,6 @@ in {
     ./hyprland
     ./hyprlock
     ./kitty
-    ./logseq
     ./lute
     ./monitors
     ./neovide
