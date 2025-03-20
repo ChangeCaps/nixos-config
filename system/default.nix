@@ -1,4 +1,4 @@
-{ pkgs, username, hostname, lib, ... }:
+{ pkgs, username, hostname, config, ... }:
 
 {
   imports = [
@@ -24,6 +24,7 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland";
   };
 
   programs.hyprland = {
@@ -78,7 +79,8 @@
       firefox
       neofetch
       nautilus
-      ark
+      kdePackages.ark
+      config.boot.kernelPackages.perf
     ];
   };
 

@@ -72,6 +72,10 @@ in {
       nuke = "rm -rf";
     };
 
+    home.sessionVariables = {
+      QT_QPA_PLATFORM = "wayland";
+    };
+
     home.packages = [
       pkgs.flatpak
       pkgs.killall

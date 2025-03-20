@@ -13,7 +13,7 @@ in {
     };
   };
 
-  config = lib.mergeAttrs {
+  config = lib.recursiveUpdate {
     # Enable sound with pipewire.
     services.pulseaudio.enable = false;
     services.pipewire = {
@@ -21,7 +21,6 @@ in {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      # If you want to use JACK applications, uncomment this
       jack.enable = true;
     };
   } (lib.mkIf cfg.enable {
@@ -48,9 +47,16 @@ in {
       '';
     };
 
+    services.das_watchdog.enable = lib.mkForce true;
+
     security.rtkit.enable = true;
 
     services.pipewire = {
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+
       extraConfig = {
         pipewire."92-low-latency" = {
           "context.properties" = {
