@@ -100,9 +100,11 @@ in {
 
         $env.PATH = ($env.PATH | 
           split row (char esep) |
-          prepend /home/myuser/.apps |
           append /usr/bin/env
         )
+
+        # Add cargo bin to PATH
+        $env.PATH = ($env.PATH | /home/${config.home.username}/.cargo/bin)
       '' + builtins.readFile ./theme.nu
          + (if config.nh.enable then ''
             $env.FLAKE = "${flake}"

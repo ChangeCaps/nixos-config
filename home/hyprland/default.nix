@@ -207,7 +207,7 @@ in {
           "$mod, A, submap, resize"
 
           # switch keyboard layout
-          "$mod, M, exec, ${hyprctl} switchxkblayout ${config.keyboard} next"
+          "$mod, M, exec, ${hyprctl} switchxkblayout \"${config.keyboard}\" next"
 
           # Group shortcuts
           "$mod, G, togglegroup,"
