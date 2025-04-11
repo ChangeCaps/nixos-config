@@ -31,6 +31,7 @@
         credential.helper = "libsecret";
         init.defaultBranch = "main";
         pull.rebase = false;
+        submodule.recurse = true;
       };
     }; 
   };
