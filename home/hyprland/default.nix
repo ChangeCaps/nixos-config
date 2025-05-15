@@ -81,10 +81,7 @@ in {
 
         input = {
           kb_layout = "us,dk";
-          kb_variant = "qwerty";
-          kb_model = "";
           kb_options = "caps:escape";
-          kb_rules = "";
 
           follow_mouse = 0;
           float_switch_override_focus = 0;
@@ -97,6 +94,10 @@ in {
           repeat_delay = 250;
 
           sensitivity = 0.34;
+        };
+
+        gestures = {
+          workspace_swipe = true;
         };
 
         decoration = {
