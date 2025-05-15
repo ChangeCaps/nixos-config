@@ -3,7 +3,7 @@
 let
   cfg = config.rt-audio;
   sample-rate = 48000;
-  quantum = 64;
+  quantum = 128;
 in {
   options.rt-audio = {
     enable = lib.mkOption {
@@ -30,7 +30,14 @@ in {
     # Enable realtime scheduling
     boot.kernelParams = [ "threadirqs" ];
 
-    boot.kernelPackages = pkgs.linuxPackages_latest_rt;
+    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
+      structuredExtraConfig = with lib.kernel; {
+        PREEMPT_RT = yes;
+        PREEMPT = lib.mkForce yes;
+      };
+
+      ignoreConfigErrors = true;
+    });
 
     security.pam.loginLimits = [
       { domain = "@audio"; item = "memlock"; type = "-"   ; value = "unlimited"; }
@@ -41,8 +48,8 @@ in {
 
     services.udev = {
       extraRules = ''
-        KERNEL=="rtc0", group="audio"
-        KERNEL=="hpet", group="audio"
+        KERNEL=="rtc0", GROUP="audio"
+        KERNEL=="hpet", GROUP="audio"
         DEVPATH=="/devices/virtual/misc/cpu_dma_latency", OWNER="root", GROUP="audio", MODE="0660"
       '';
     };
