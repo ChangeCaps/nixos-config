@@ -29,6 +29,14 @@ in {
         def l   [...args] { ls     ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
         def lg  [...args] { lazygit ...$args }
 
+        def nuke [...args] {
+          if $args == [] {
+            echo "nuke: no arguments provided"
+          } else {
+            rm -rf ...$args
+          }
+        }
+
         # Completions
         # mainly pieced together from https://www.nushell.sh/cookbook/external_completers.html
 
