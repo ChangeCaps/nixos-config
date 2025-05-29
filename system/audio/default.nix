@@ -11,6 +11,12 @@ in {
       default = false;
       description = "Enable real-time audio configuration";
     };
+
+    rtkernel = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Use a real-time kernel for low-latency audio processing";
+    };
   };
 
   config = lib.recursiveUpdate {
@@ -30,14 +36,16 @@ in {
     # Enable realtime scheduling
     boot.kernelParams = [ "threadirqs" ];
 
-    boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
-      structuredExtraConfig = with lib.kernel; {
-        PREEMPT_RT = yes;
-        PREEMPT = lib.mkForce yes;
-      };
+    boot.kernelPackages = lib.mkIf cfg.rtkernel (
+      pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
+        structuredExtraConfig = with lib.kernel; {
+          PREEMPT_RT = yes;
+          PREEMPT = lib.mkForce yes;
+        };
 
-      ignoreConfigErrors = true;
-    });
+        ignoreConfigErrors = true;
+      })
+    );
 
     security.pam.loginLimits = [
       { domain = "@audio"; item = "memlock"; type = "-"   ; value = "unlimited"; }

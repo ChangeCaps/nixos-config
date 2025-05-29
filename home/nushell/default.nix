@@ -28,6 +28,7 @@ in {
         def ll  [...args] { ls -l  ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
         def l   [...args] { ls     ...(if $args == [] {["."]} else {$args}) | sort-by type name -i }
         def lg  [...args] { lazygit ...$args }
+        def nv  [...args] { neovide --fork ...$args }
 
         def nuke [...args] {
           if $args == [] {
