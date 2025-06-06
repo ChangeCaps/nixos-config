@@ -16,6 +16,7 @@ in {
     ./direnv
     ./dunst
     ./fish
+    ./gdb
     ./git
     ./hjaltes-widgets
     ./hyprland

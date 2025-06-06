@@ -55,12 +55,13 @@ in {
       pkgs.geonkick
       pkgs.tap-plugins
       pkgs.talentedhack
+      pkgs.airwindows
       pkgs.sfizz
       pkgs.helvum
       pkgs.x42-plugins
+      pkgs.x42-avldrums
       pkgs.calf
       pkgs.carla
-      pkgs.eq10q
       pkgs.guitarix
       pkgs.gxplugins-lv2
       yabridge
