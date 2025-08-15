@@ -61,7 +61,11 @@ in {
       pkgs.x42-plugins
       pkgs.x42-avldrums
       pkgs.calf
-      pkgs.carla
+      
+      (pkgs.carla.override {
+        python3Packages = pkgs.python312.pkgs;
+      })
+
       pkgs.guitarix
       pkgs.gxplugins-lv2
       yabridge

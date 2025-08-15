@@ -18,7 +18,7 @@ in {
     
     (lib.mkIf (cfg.enable && config.flake != null) {
       fish.sessionVariables = {
-        FLAKE = "${config.flake}";
+        NH_FLAKE = "${config.flake}";
       };
     })
   ];

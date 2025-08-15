@@ -3,7 +3,7 @@
 let
   cfg = config.rt-audio;
   sample-rate = 48000;
-  quantum = 128;
+  quantum = config.rt-audio.quantum;
 in {
   options.rt-audio = {
     enable = lib.mkOption {
@@ -16,6 +16,12 @@ in {
       type = lib.types.bool;
       default = true;
       description = "Use a real-time kernel for low-latency audio processing";
+    };
+
+    quantum = lib.mkOption {
+      type = lib.types.int;
+      default = 128;
+      description = "The quantum size for audio processing, in frames.";
     };
   };
 
@@ -37,7 +43,7 @@ in {
     boot.kernelParams = [ "threadirqs" ];
 
     boot.kernelPackages = lib.mkIf cfg.rtkernel (
-      pkgs.linuxPackagesFor (pkgs.linux_6_13.override {
+      pkgs.linuxPackagesFor (pkgs.linux_latest.override {
         structuredExtraConfig = with lib.kernel; {
           PREEMPT_RT = yes;
           PREEMPT = lib.mkForce yes;
@@ -100,17 +106,17 @@ in {
         #    {
         #      name = "libpipewire-module-protocol-pulse";
         #      args = {
-        #        "pulse.default.req" = quantum-fraction;
-        #        "pulse.min.req"     = quantum-fraction;
-        #        "pulse.max.req"     = quantum-fraction;
-        #        "pulse.min.quantum" = quantum-fraction;
-        #        "pulse.max.quantum" = quantum-fraction;
+        #        "pulse.default.req" = quantum;
+        #        "pulse.min.req"     = quantum;
+        #        "pulse.max.req"     = quantum;
+        #        "pulse.min.quantum" = quantum;
+        #        "pulse.max.quantum" = quantum;
         #      };
         #    }
         #  ];
         #
         #  "stream.properties" = {
-        #    "node.latency" = quantum-fraction;
+        #    "node.latency" = quantum;
         #    "resample.quality" = 1;
         #  };
         #};

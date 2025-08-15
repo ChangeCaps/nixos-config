@@ -65,8 +65,10 @@ in {
               resolution = if m.resolution != null then m.resolution else "preferred"; 
               refreshRate = if m.refreshRate != null then "@${m.refreshRate}" else "";
               position = if m.position != null then m.position else "auto";
+              hdr = if m.hdr then ", bitdepth, 10" else "";
+              enable = if m.enable then "" else ", disabled";
             in 
-            "${m.name}, ${resolution}${refreshRate}, ${position}, 1"
+            "${m.name}, ${resolution}${refreshRate}, ${position}, ${toString m.scale}${hdr}${enable}"
           )
           config.monitors;
 
@@ -74,9 +76,14 @@ in {
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
         "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --clipboard-only";
 
+        xwayland = {
+          force_zero_scaling = true;
+        };
+
         env = [
           "XCURSOR_SIZE, 24"
           "XCURSOR_THEME, Bibata-Modern-Classic"
+          "GDK_SCALE, 2"
         ];
 
         input = {
@@ -179,7 +186,7 @@ in {
         };
 
         windowrulev2 = [
-          "stayfocused,class:REAPER,title:(.*)connector$"
+          "noinitialfocus,class:REAPER,title:^$"
         ];
 
         workspace = (builtins.genList 

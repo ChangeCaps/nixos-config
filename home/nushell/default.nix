@@ -114,7 +114,7 @@ in {
         )
       '' + builtins.readFile ./theme.nu
          + (if config.nh.enable then ''
-            $env.FLAKE = "${flake}"
+            $env.NH_FLAKE = "${flake}"
          '' else "");
     };
 

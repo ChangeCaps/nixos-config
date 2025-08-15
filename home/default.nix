@@ -1,16 +1,6 @@
 { inputs, config, pkgs, lib, username, ... }:
 
-let
-  fix-electron = (package:
-    package.overrideAttrs(oldAttrs: {
-      nativeBuildInputs = oldAttrs.nativeBuildInputs or [] ++ [ pkgs.makeWrapper ];
-
-      postFixup = (oldAttrs.postFixup or "") + ''
-        chmod +x $out/bin/${package.meta.mainProgram}
-        wrapProgram $out/bin/${package.meta.mainProgram} --append-flags "--use-angle=opengl"
-      '';
-    }));
-in {
+{
   imports = [
     # Include all the modules.
     ./direnv
@@ -80,20 +70,17 @@ in {
       pkgs.flatpak
       pkgs.killall
       pkgs.htop
-      pkgs.python3
       pkgs.rustup
       pkgs.renderdoc
-      (fix-electron pkgs.spotify)
+      pkgs.spotify
       pkgs.ripgrep
-      (fix-electron pkgs.vesktop)
+      pkgs.vesktop
       pkgs.musescore
       pkgs.muse-sounds-manager
       pkgs.godot_4
       pkgs.blender
       pkgs.rustup
       pkgs.clang 
-      pkgs.gleam
-      pkgs.erlang
       pkgs.bat
       pkgs.swww
 

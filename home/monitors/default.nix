@@ -32,6 +32,12 @@
           default = 1.0;
         };
 
+        hdr = lib.mkOption {
+          type = lib.types.bool;
+          default = false;
+          description = "Enable HDR for the monitor.";
+        };
+
         enable = lib.mkOption {
           type = lib.types.bool;
           default = true;

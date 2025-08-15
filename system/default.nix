@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./amd
     ./audio
     ./locale
     ./nvidia
