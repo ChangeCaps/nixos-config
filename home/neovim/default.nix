@@ -26,6 +26,11 @@
     pkgs.gdb
     pkgs.wl-clipboard
     pkgs.jdt-language-server
+    pkgs.typst
+    pkgs.tinymist
+    pkgs.tree-sitter
+    pkgs.python3
+    pkgs.python313Packages.pylatexenc
   ];
 
   home.sessionVariables = {
