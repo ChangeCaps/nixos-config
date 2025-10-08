@@ -62,9 +62,10 @@ in {
       pkgs.x42-avldrums
       pkgs.calf
       
-      (pkgs.carla.override {
-        python3Packages = pkgs.python312.pkgs;
-      })
+      pkgs.carla
+      # (pkgs.carla.override {
+      #   python3Packages = pkgs.python312.pkgs;
+      # })
 
       pkgs.guitarix
       pkgs.gxplugins-lv2

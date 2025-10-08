@@ -1,0 +1,3 @@
+[submodule "home/neovim/neovim-config"]
+	path = home/neovim/neovim-config
+	url = git@github.com:ChangeCaps/neovim-config.git

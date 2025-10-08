@@ -1,8 +1,10 @@
-{ inputs, pkgs, ... }: 
+{ pkgs, config, ... }: 
 
-{
+let
+  flake = builtins.replaceStrings ["~"] [config.home.homeDirectory] "${config.flake}";
+in {
   xdg.configFile = { 
-    "nvim".source = inputs.neovim-config;
+    "nvim".source = config.lib.file.mkOutOfStoreSymlink "${flake}/nixos-config/home/neovim/neovim-config";
   };
 
   programs.neovim = {
