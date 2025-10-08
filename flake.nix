@@ -15,11 +15,6 @@
       url = "github:misterio77/nix-colors";
     };
 
-    neovim-config = {
-      url = "github:ChangeCaps/neovim-config";
-      flake = false;
-    };
-
     lute = {
       url = "github:ChangeCaps/lute";
       inputs.nixpkgs.follows = "nixpkgs";
