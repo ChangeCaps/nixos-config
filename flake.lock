@@ -34,42 +34,23 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
-      "inputs": {
-        "systems": "systems_3"
-      },
-      "locked": {
-        "lastModified": 1710146030,
-        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "hjaltes-widgets": {
       "inputs": {
-        "lute": "lute",
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "systems": "systems_2"
+        ]
       },
       "locked": {
-        "lastModified": 1723211922,
-        "narHash": "sha256-ZVdMct1r+r4N1voLkKv+k18FxPLlnBz+Yqal0ak3Bec=",
+        "lastModified": 1763137451,
+        "narHash": "sha256-FKMxwQjM/jXFI51HYdjqyCykruL+ew1kC2/WUSy9FUI=",
         "owner": "ChangeCaps",
         "repo": "hjaltes-widgets",
-        "rev": "c3e3c9464bd4eebb3b65aa0d896dde3497f6497d",
+        "rev": "4933d8c37cd57f41cab08636f90f7685a9873290",
         "type": "github"
       },
       "original": {
         "owner": "ChangeCaps",
+        "ref": "ori",
         "repo": "hjaltes-widgets",
         "type": "github"
       }
@@ -97,28 +78,6 @@
     "lute": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "hjaltes-widgets",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1723078772,
-        "narHash": "sha256-Vx++Y8zQH0+Hj4+b4zlEZnoZUuVMLe8vvR4PwC+zY9w=",
-        "owner": "ChangeCaps",
-        "repo": "lute",
-        "rev": "6923da5d09b10bc1b1deea8c2277f16b0f1df0d2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ChangeCaps",
-        "repo": "lute",
-        "type": "github"
-      }
-    },
-    "lute_2": {
-      "inputs": {
-        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -154,22 +113,6 @@
       "original": {
         "owner": "musnix",
         "repo": "musnix",
-        "type": "github"
-      }
-    },
-    "neovim-config": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759494136,
-        "narHash": "sha256-X2uQQuFHdQGBroCxKa5uQ7092lZmS9VPkQvdrahdKLM=",
-        "owner": "ChangeCaps",
-        "repo": "neovim-config",
-        "rev": "52f3544618bebd676588828936ccd3c1fa155401",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ChangeCaps",
-        "repo": "neovim-config",
         "type": "github"
       }
     },
@@ -227,44 +170,13 @@
       "inputs": {
         "hjaltes-widgets": "hjaltes-widgets",
         "home-manager": "home-manager",
-        "lute": "lute_2",
+        "lute": "lute",
         "musnix": "musnix",
-        "neovim-config": "neovim-config",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_2": {
-      "locked": {
-        "lastModified": 1689347949,
-        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

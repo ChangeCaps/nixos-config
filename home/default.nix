@@ -4,11 +4,10 @@
   imports = [
     # Include all the modules.
     ./direnv
-    ./dunst
+    # ./dunst
     ./fish
     ./gdb
     ./git
-    ./hjaltes-widgets
     ./hyprland
     ./hyprlock
     ./kitty
@@ -20,7 +19,7 @@
     ./nushell
     ./reaper
     ./theme
-    ./waybar
+    # ./waybar
     ./wofi 
   ];
 
@@ -83,6 +82,7 @@
       pkgs.clang 
       pkgs.bat
       pkgs.swww
+      pkgs.man-pages
 
       (pkgs.callPackage ./rtcqs.nix {})
 

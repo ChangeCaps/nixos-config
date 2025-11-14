@@ -117,6 +117,9 @@
   fonts.packages = with pkgs; [
     noto-fonts
     fira-code
+    ubuntu-sans
+    ubuntu-sans-mono
+    ubuntu_font_family
     material-symbols
     nerd-fonts.fira-code
   ];

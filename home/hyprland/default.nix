@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
+  widgets = inputs.hjaltes-widgets.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
   startupScript = pkgs.writeShellScriptBin "start" ''
     ${pkgs.swww}/bin/swww-daemon &
-    while true; do ${config.programs.waybar.package}/bin/waybar; done &
-    ${config.programs.hjaltes-widgets.package}/bin/hjaltes-widgets volume-popup &
+    ${widgets}/bin/hjaltes-bar &
+    ${widgets}/bin/hjaltes-notify &
 
     sleep 1
 
@@ -83,7 +85,7 @@ in {
         env = [
           "XCURSOR_SIZE, 24"
           "XCURSOR_THEME, Bibata-Modern-Classic"
-          "GDK_SCALE, 2"
+          "GDK_SCALE, 1.5"
         ];
 
         input = {

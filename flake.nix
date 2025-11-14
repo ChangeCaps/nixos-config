@@ -21,7 +21,7 @@
     };
 
     hjaltes-widgets = {
-      url = "github:ChangeCaps/hjaltes-widgets";
+      url = "github:ChangeCaps/hjaltes-widgets?ref=ori";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -56,7 +56,6 @@
           modules = [ 
             # Include the default Home Manager modules.
             inputs.nix-colors.homeManagerModules.default
-            inputs.hjaltes-widgets.homeManagerModules.default
 
             ./home
             home
