@@ -40,7 +40,7 @@
     enable = true;
 
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  }; 
+  };
 
   # Enable sysrq
   boot.kernel.sysctl."kernel.sysrq" = 502;
@@ -85,10 +85,6 @@
     ];
   };
 
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
-
   # Enable light
   programs.light.enable = true;
 
@@ -119,7 +115,6 @@
     fira-code
     ubuntu-sans
     ubuntu-sans-mono
-    ubuntu_font_family
     material-symbols
     nerd-fonts.fira-code
   ];

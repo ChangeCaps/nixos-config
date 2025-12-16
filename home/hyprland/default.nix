@@ -61,18 +61,41 @@ in {
       settings = with config.colorScheme.palette; {
         exec-once ="${startupScript}/bin/start";
 
-        monitor = map
+        # monitor = map
+        #   (m:
+        #     let
+        #       resolution = if m.resolution != null then m.resolution else "preferred";
+        #       refreshRate = if m.refreshRate != null then "@${m.refreshRate}" else "";
+        #       position = if m.position != null then m.position else "auto";
+        #       hdr = if m.hdr then ", bitdepth, 10, cm, hdr" else "";
+        #       enable = if m.enable then "" else ", disabled";
+        #     in
+        #     "${m.name}, ${resolution}${refreshRate}, ${position}, ${toString m.scale}${hdr}${enable}"
+        #   )
+        #   config.monitors;
+        monitorv2 = map
           (m:
             let
-              resolution = if m.resolution != null then m.resolution else "preferred"; 
+              resolution = if m.resolution != null then m.resolution else "preferred";
               refreshRate = if m.refreshRate != null then "@${m.refreshRate}" else "";
+            in
+            {
+              output = m.name;
+              mode = "${resolution}${refreshRate}";
               position = if m.position != null then m.position else "auto";
-              hdr = if m.hdr then ", bitdepth, 10" else "";
-              enable = if m.enable then "" else ", disabled";
-            in 
-            "${m.name}, ${resolution}${refreshRate}, ${position}, ${toString m.scale}${hdr}${enable}"
-          )
-          config.monitors;
+              scale = m.scale;
+
+              bitdepth = if m.hdr then 10 else 8;
+              supports_wide_color = m.hdr;
+              supports_hdr = m.hdr;
+              cm = if m.hdr then "hdr" else null;
+              sdrbrightness = 1.0;
+              sdrsaturation = 1.0;
+              sdr_min_luminance = 0.005;
+              sdr_max_luminance = 200;
+            }
+           )
+           config.monitors;
 
         "$terminal" = "${pkgs.kitty}/bin/kitty";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
@@ -109,6 +132,14 @@ in {
           "3, horizontal, workspace"
         ];
 
+        experimental = {
+          xx_color_management_v4 = true;
+        };
+
+        render = {
+          send_content_type = true;
+        };
+
         decoration = {
           rounding = 6;
 
@@ -118,14 +149,14 @@ in {
 
           shadow = {
             enabled = true;
-            range = 300;
+            range = 100;
             render_power = 4;
             offset = "0 40";
             scale = 0.9;
           };
 
           blur = {
-            size = 12;
+            size = 16;
             passes = 2;
           };
         };
