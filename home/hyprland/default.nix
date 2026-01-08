@@ -14,26 +14,6 @@ let
   ''; 
 
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
-
-  resizeSubmap = ''
-    submap = resize
-
-    binde = , H, resizeactive, -10  0
-    binde = , J, resizeactive,  0   10
-    binde = , K, resizeactive,  0  -10
-    binde = , L, resizeactive,  10  0
-
-    binde = SHIFT, H, resizeactive, -50  0
-    binde = SHIFT, J, resizeactive,  0   50
-    binde = SHIFT, K, resizeactive,  0  -50
-    binde = SHIFT, L, resizeactive,  50  0
-
-    bind = , escape, submap, reset
-    bind = , A, submap, reset
-    bind = , Q, submap, reset
-
-    submap = reset
-  '';
 in { 
   options = {
     wallpaper = lib.mkOption {
@@ -54,25 +34,9 @@ in {
 
       xwayland.enable = true;
 
-      extraConfig = ''
-        ${resizeSubmap}
-      '';
-
       settings = with config.colorScheme.palette; {
         exec-once ="${startupScript}/bin/start";
 
-        # monitor = map
-        #   (m:
-        #     let
-        #       resolution = if m.resolution != null then m.resolution else "preferred";
-        #       refreshRate = if m.refreshRate != null then "@${m.refreshRate}" else "";
-        #       position = if m.position != null then m.position else "auto";
-        #       hdr = if m.hdr then ", bitdepth, 10, cm, hdr" else "";
-        #       enable = if m.enable then "" else ", disabled";
-        #     in
-        #     "${m.name}, ${resolution}${refreshRate}, ${position}, ${toString m.scale}${hdr}${enable}"
-        #   )
-        #   config.monitors;
         monitorv2 = map
           (m:
             let
@@ -245,7 +209,6 @@ in {
           "$mod, F, fullscreen,"
           "$mod, P, pseudo,"
           "$mod, E, togglesplit,"
-          "$mod, A, submap, resize"
 
           # switch keyboard layout
           "$mod, M, exec, ${hyprctl} switchxkblayout \"${config.keyboard}\" next"
@@ -272,6 +235,16 @@ in {
           "$mod SHIFT, J, movewindow, d"
           "$mod SHIFT, K, movewindow, u"
           "$mod SHIFT, L, movewindow, r"
+
+          "$mod, left,  movefocus, l"
+          "$mod, down,  movefocus, d"
+          "$mod, up,    movefocus, u"
+          "$mod, right, movefocus, r"
+
+          "$mod SHIFT, left,  movewindow, l"
+          "$mod SHIFT, down,  movewindow, d"
+          "$mod SHIFT, up,    movewindow, u"
+          "$mod SHIFT, right, movewindow, r"
 
           # scroll workspace
           "$mod, mouse_down, workspace, e+1"
