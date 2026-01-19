@@ -52,7 +52,7 @@ in {
               bitdepth = if m.hdr then 10 else 8;
               supports_wide_color = m.hdr;
               supports_hdr = m.hdr;
-              cm = if m.hdr then "hdr" else null;
+              cm = if m.hdr then "hdr" else "srgb";
               sdrbrightness = 1.0;
               sdrsaturation = 1.0;
               sdr_min_luminance = 0.005;
