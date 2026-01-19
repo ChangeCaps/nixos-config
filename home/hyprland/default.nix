@@ -56,7 +56,7 @@ in {
               sdrbrightness = 1.0;
               sdrsaturation = 1.0;
               sdr_min_luminance = 0.005;
-              sdr_max_luminance = 200;
+              sdr_max_luminance = 250;
             }
            )
            config.monitors;
@@ -95,10 +95,6 @@ in {
         gesture = [
           "3, horizontal, workspace"
         ];
-
-        experimental = {
-          xx_color_management_v4 = true;
-        };
 
         render = {
           send_content_type = true;

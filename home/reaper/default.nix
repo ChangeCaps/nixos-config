@@ -56,7 +56,7 @@ in {
       pkgs.tap-plugins
       pkgs.talentedhack
       pkgs.airwindows
-      pkgs.sfizz
+      pkgs.sfizz-ui
       pkgs.helvum
       pkgs.x42-plugins
       pkgs.x42-avldrums
