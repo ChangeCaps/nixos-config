@@ -20,8 +20,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hjaltes-widgets = {
-      url = "github:ChangeCaps/hjaltes-widgets?ref=ori";
+    widgets = {
+      url = "github:ChangeCaps/widgets";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

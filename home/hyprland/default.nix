@@ -1,12 +1,13 @@
 { config, pkgs, lib, inputs, ... }:
 
 let
-  widgets = inputs.hjaltes-widgets.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  widgets = inputs.widgets.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
   startupScript = pkgs.writeShellScriptBin "start" ''
     ${pkgs.swww}/bin/swww-daemon &
-    ${widgets}/bin/hjaltes-bar &
-    ${widgets}/bin/hjaltes-notify &
+    ${widgets}/bin/bar &
+    ${widgets}/bin/notifier &
+    ${widgets}/bin/volume-popup &
 
     sleep 1
 
@@ -101,7 +102,7 @@ in {
         };
 
         decoration = {
-          rounding = 6;
+          rounding = 20;
 
           active_opacity = 0.875;
           inactive_opacity = 0.8;
@@ -111,8 +112,8 @@ in {
             enabled = true;
             range = 100;
             render_power = 4;
-            offset = "0 40";
-            scale = 0.9;
+            offset = "0 10";
+            scale = 0.95;
           };
 
           blur = {
@@ -140,10 +141,7 @@ in {
           gaps_in = 4;
           gaps_out = 8;
 
-          border_size = 1;
-
-          "col.active_border" = "rgba(${base0E}ee) rgba(${base08}ee) 45deg";
-          "col.inactive_border" = "rgba(${base03}dd)";
+          border_size = 0;
 
           layout = "dwindle";
 
@@ -182,9 +180,13 @@ in {
           "noinitialfocus,class:REAPER,title:^$"
         ];
 
+        layerrule = [
+          "no_anim on,match:namespace bar-widget"
+        ];
+
         workspace = (builtins.genList 
           (x: let
-            name = builtins.toString (x + 1);  
+            name = toString (x + 1);  
             monitor = lib.lists.findFirst (m: m.workspace == x + 1) null config.monitors;
             monitorOption = if monitor != null then ", monitor:${monitor.name}" else "";
           in 
@@ -266,7 +268,7 @@ in {
           # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
           builtins.concatLists (builtins.genList (
               x: let
-                ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+                ws = let c = (x + 1) / 10; in toString (x + 1 - (c * 10));
               in [
                 "$mod, ${ws}, focusworkspaceoncurrentmonitor, ${toString (x + 1)}"
                 "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)},activewindow"
