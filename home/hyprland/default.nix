@@ -63,7 +63,7 @@ in {
            config.monitors;
 
         "$terminal" = "${pkgs.kitty}/bin/kitty";
-        "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
+        "$menu" = "${widgets}/bin/launcher";
         "$screenshot" = "${pkgs.hyprshot}/bin/hyprshot --clipboard-only";
 
         xwayland = {
@@ -102,7 +102,7 @@ in {
         };
 
         decoration = {
-          rounding = 20;
+          rounding = 24;
 
           active_opacity = 0.875;
           inactive_opacity = 0.8;
@@ -261,8 +261,8 @@ in {
           ", XF86AudioStop, exec, ${pkgs.playerctl}/bin/playerctl stop"
 
           # brightness control
-          ", XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -A 10"
-          ", XF86MonBrightnessDown, exec, ${pkgs.light}/bin/light -U 10"
+          ", XF86MonBrightnessUp, exec, ${pkgs.brightnessctl}/bin/brightnessctl set +10%"
+          ", XF86MonBrightnessDown, exec, ${pkgs.brightnessctl}/bin/brightnessctl set 10%-"
         ] ++ (
           # workspaces
           # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}

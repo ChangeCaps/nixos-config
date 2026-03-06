@@ -4,7 +4,6 @@
   imports = [
     # Include all the modules.
     ./direnv
-    # ./dunst
     ./fish
     ./gdb
     ./git
@@ -19,8 +18,6 @@
     ./nushell
     ./reaper
     ./theme
-    # ./waybar
-    ./wofi 
   ];
 
   options = {

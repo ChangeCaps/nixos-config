@@ -78,15 +78,12 @@
     ];
     packages = with pkgs; [
       firefox
-      neofetch
+      fastfetch
       nautilus
       kdePackages.ark
       config.boot.kernelPackages.perf
     ];
   };
-
-  # Enable light
-  programs.light.enable = true;
 
   # Enable steam
   programs.steam = {

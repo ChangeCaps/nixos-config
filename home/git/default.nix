@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, lib, ... }: 
+{ config, pkgs, lib, ... }: 
 
 {
   options.git = {
@@ -8,13 +8,13 @@
       description = "Enable git";
     };
     
-    userName = lib.mkOption {
+    name = lib.mkOption {
       type = lib.types.str;
       example = "John Doe";
       description = "The name to use for git commits";
     };
 
-    userEmail = lib.mkOption {
+    email = lib.mkOption {
       type = lib.types.str;
       example = "john@doe.org";
       description = "The email to use for git commits";
@@ -25,9 +25,12 @@
     programs.git = {
       enable = config.git.enable;
       package = pkgs.gitFull;
-      userName = config.git.userName;
-      userEmail = config.git.userEmail;
-      extraConfig = {
+      settings = {
+        user = {
+          name = config.git.name;
+          email = config.git.email;
+        };
+
         credential.helper = "libsecret";
         init.defaultBranch = "main";
         pull.rebase = false;

@@ -13,7 +13,7 @@
     };
     extraConfig = ''
       enable_audio_bell no
-      window_padding_width 24
+      window_padding_width 32
     '';
   };
 }

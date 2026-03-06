@@ -1,11 +1,7 @@
 {  config, pkgs, lib, ... }:
 
 let 
-  cfg = config.reaper;
-
-  
-  yabridge = pkgs.yabridge.override { wine = pkgs.wineWowPackages.waylandFull; };
-  yabridgectl = pkgs.yabridgectl.override { wine = pkgs.wineWowPackages.waylandFull; };
+  cfg = config.reaper; 
 in {
   options.reaper = {
     enable = lib.mkEnableOption "reaper";
@@ -31,20 +27,6 @@ in {
       VST3_PATH = makePluginPath "vst3";
     }; 
 
-    home.file = {
-      ".local/share/yabridge/yabridge-host.exe".source = "${yabridge}/bin/yabridge-host.exe";
-      ".local/share/yabridge/yabridge-host.exe.so".source = "${yabridge}/bin/yabridge-host.exe.so";
-      ".local/share/yabridge/yabridge-host-32.exe".source = "${yabridge}/bin/yabridge-host-32.exe";
-      ".local/share/yabridge/yabridge-host-32.exe.so".source = "${yabridge}/bin/yabridge-host-32.exe.so";
-      ".local/share/yabridge/libyabridge-chainloader-vst2.so".source = "${yabridge}/lib/libyabridge-chainloader-vst2.so";
-      ".local/share/yabridge/libyabridge-chainloader-vst3.so".source = "${yabridge}/lib/libyabridge-chainloader-vst3.so";
-      ".local/share/yabridge/libyabridge-chainloader-clap.so".source = "${yabridge}/lib/libyabridge-chainloader-clap.so";
-
-      ".local/share/yabridge/libyabridge-vst2.so".source = "${yabridge}/lib/libyabridge-vst2.so";
-      ".local/share/yabridge/libyabridge-vst3.so".source = "${yabridge}/lib/libyabridge-vst3.so";
-      ".local/share/yabridge/libyabridge-clap.so".source = "${yabridge}/lib/libyabridge-clap.so";
-    };
-
     home.packages = [
       pkgs.reaper
 
@@ -69,8 +51,6 @@ in {
 
       pkgs.guitarix
       pkgs.gxplugins-lv2
-      yabridge
-      yabridgectl
       pkgs.wineWowPackages.waylandFull
       (pkgs.stdenv.mkDerivation rec {
         pname = "decent-sampler";
