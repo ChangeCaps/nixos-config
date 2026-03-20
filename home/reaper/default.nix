@@ -28,7 +28,9 @@ in {
     }; 
 
     home.packages = [
-      pkgs.reaper
+      (pkgs.reaper.overrideAttrs (oldAttrs: {
+        GDK_SCALE = 2.0;
+      }))
 
       /* plugins */
       pkgs.vital
@@ -39,19 +41,12 @@ in {
       pkgs.talentedhack
       pkgs.airwindows
       pkgs.sfizz-ui
-      pkgs.helvum
+      pkgs.crosspipe
       pkgs.x42-plugins
       pkgs.x42-avldrums
       pkgs.calf
-      
       pkgs.carla
-      # (pkgs.carla.override {
-      #   python3Packages = pkgs.python312.pkgs;
-      # })
-
-      pkgs.guitarix
       pkgs.gxplugins-lv2
-      pkgs.wineWowPackages.waylandFull
       (pkgs.stdenv.mkDerivation rec {
         pname = "decent-sampler";
         version = "1.12.5";
@@ -89,7 +84,6 @@ in {
           runHook postInstall
         '';
       })
-      pkgs.surge
     ];
   };
 }

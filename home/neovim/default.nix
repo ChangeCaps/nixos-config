@@ -4,7 +4,7 @@ let
   flake = builtins.replaceStrings ["~"] [config.home.homeDirectory] "${config.flake}";
 in {
   xdg.configFile = { 
-    "nvim".source = config.lib.file.mkOutOfStoreSymlink "${flake}/nixos-config/home/neovim/neovim-config";
+    "nvim".source = config.lib.file.mkOutOfStoreSymlink "${flake}/nixos-config/home/neovim/config";
   };
 
   programs.neovim = {

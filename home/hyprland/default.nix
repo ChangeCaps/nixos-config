@@ -9,7 +9,7 @@ let
     ${widgets}/bin/notifier &
     ${widgets}/bin/volume-popup &
 
-    sleep 1
+    sleep 2
 
     ${pkgs.swww}/bin/swww img ${config.wallpaper} &
   ''; 
@@ -175,10 +175,6 @@ in {
         misc = {
           force_default_wallpaper = 0;
         };
-
-        windowrulev2 = [
-          "noinitialfocus,class:REAPER,title:^$"
-        ];
 
         layerrule = [
           "no_anim on,match:namespace bar-widget"
