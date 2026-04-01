@@ -177,11 +177,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773700908,
-        "narHash": "sha256-CT8M6tMb19uxXHwneVY+mkIre7DIKvWfqyhTXm1Ue5g=",
+        "lastModified": 1774553716,
+        "narHash": "sha256-wr4kuCVIXMEFDHxY2pTDksCC9Ipuk+8K2tepWS9poW8=",
         "owner": "ChangeCaps",
         "repo": "widgets",
-        "rev": "2889d389464351e011ba553f5b2e01e4ff143454",
+        "rev": "284d6e2d2a0162232a4c9fa6cad319bc08942819",
         "type": "github"
       },
       "original": {

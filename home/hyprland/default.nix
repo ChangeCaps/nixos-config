@@ -110,14 +110,13 @@ in {
 
           shadow = {
             enabled = true;
-            range = 100;
+            range = 50;
             render_power = 4;
-            offset = "0 10";
-            scale = 0.95;
+            offset = "3 3";
           };
 
           blur = {
-            size = 16;
+            size = 8;
             passes = 2;
           };
         };

@@ -48,22 +48,11 @@
   # Configure console keymap
   console.keyMap = "us";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable flatpak.
-  services.flatpak.enable = true;
-
-  # Enable GVFS for mounting remote filesystems.
-  services.gvfs.enable = true;
-
   # Enable thumbnails for file managers.
-  services.tumbler.enable = true;  
+  services.tumbler.enable = true;
 
   # Enable docker
   virtualisation.docker.enable = true;
-
-  powerManagement.cpuFreqGovernor = "performance";
 
   users.users.${username} = {
     isNormalUser = true;
@@ -92,7 +81,7 @@
 
   # Enable fish
   programs.fish.enable = true;
-  users.defaultUserShell = pkgs.nushell; 
+  users.defaultUserShell = pkgs.nushell;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
