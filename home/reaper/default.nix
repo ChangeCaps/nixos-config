@@ -62,7 +62,7 @@ in {
           pkgs.alsa-lib
           pkgs.freetype
           pkgs.nghttp2
-          pkgs.xorg.libX11
+          pkgs.libx11
         ];
 
         dontBuild = true;
