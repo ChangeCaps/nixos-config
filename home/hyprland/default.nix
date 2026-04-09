@@ -198,10 +198,10 @@ in {
           
           "$mod, Q, killactive,"
           "$mod, W, togglefloating,"
-          "$mod, D, exec, ${hyprctl} setprop active opaque toggle"
+          "$mod, D, setprop, active opaque toggle"
           "$mod, F, fullscreen,"
           "$mod, P, pseudo,"
-          "$mod, E, togglesplit,"
+          "$mod, E, layoutmsg, togglesplit"
 
           # switch keyboard layout
           "$mod, M, exec, ${hyprctl} switchxkblayout \"${config.keyboard}\" next"

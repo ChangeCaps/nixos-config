@@ -84,7 +84,6 @@
   users.defaultUserShell = pkgs.nushell;
 
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
